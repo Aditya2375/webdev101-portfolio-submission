@@ -2555,7 +2555,7 @@ html.no-view-timeline .prow.is-flat .prow__inner { transform: none; opacity: 1; 
    only page surfaces, text, hairlines and plates invert. The
    toggle sits in the top navbar, right of the CONTACT link. */
 
-:root[data-theme="dark"] {
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) {
   --clr-bg:      #0E0E11;
   --clr-text:    #EDECEA;
   --clr-muted:   #9B9A97;
@@ -2565,78 +2565,78 @@ html.no-view-timeline .prow.is-flat .prow__inner { transform: none; opacity: 1; 
 }
 
 /* Tailwind utilities carry hex literals - remap them in dark. */
-:root[data-theme="dark"] .text-ink        { color: var(--clr-text) !important; }
-:root[data-theme="dark"] .text-muted      { color: var(--clr-muted) !important; }
-:root[data-theme="dark"] .bg-white        { background-color: var(--clr-bg) !important; }
-:root[data-theme="dark"] .border-hairline { border-color: var(--clr-line) !important; }
-:root[data-theme="dark"] .bg-plate        { background-color: var(--clr-plate) !important; }
-:root[data-theme="dark"] .hover\:text-ink:hover { color: var(--clr-text) !important; }
-:root[data-theme="dark"] .focus-visible\:text-ink:focus-visible { color: var(--clr-text) !important; }
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .text-ink        { color: var(--clr-text) !important; }
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .text-muted      { color: var(--clr-muted) !important; }
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .bg-white        { background-color: var(--clr-bg) !important; }
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .border-hairline { border-color: var(--clr-line) !important; }
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .bg-plate        { background-color: var(--clr-plate) !important; }
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .hover\:text-ink:hover { color: var(--clr-text) !important; }
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .focus-visible\:text-ink:focus-visible { color: var(--clr-text) !important; }
 
 /* V25: skills island is a genuine medium blue both themes - purple family
    removed entirely (his call: darker than the old lavender, not very dark).
    The island text palette stays as-is. */
 .skills.bg-accent { background-color: #4E7FDE; }
-:root[data-theme="dark"] .skills.bg-accent { background-color: #4E7FDE; }
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .skills.bg-accent { background-color: #4E7FDE; }
 /* The lavender skills island keeps its light palette in dark mode. */
-:root[data-theme="dark"] .skills {
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .skills {
   --clr-text: #1B1B1B;
   --clr-muted: #4A4A4A;
   --clr-bg:   #FFFFFF;
   --clr-line: #E5E5E5;
 }
-:root[data-theme="dark"] .skills .text-ink   { color: #1B1B1B !important; }
-:root[data-theme="dark"] .skills .text-muted { color: #4A4A4A !important; }
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .skills .text-ink   { color: #1B1B1B !important; }
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .skills .text-muted { color: #4A4A4A !important; }
 
 /* Photo sections keep white text (re-guarded above the remaps). */
-:root[data-theme="dark"] .section--photo .text-ink,
-:root[data-theme="dark"] .section--photo .section-title,
-:root[data-theme="dark"] .section--photo h2,
-:root[data-theme="dark"] .section--photo h3 { color: #FFF !important; }
-:root[data-theme="dark"] .section--photo .text-muted { color: rgba(255, 255, 255, 0.8) !important; }
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .section--photo .text-ink,
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .section--photo .section-title,
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .section--photo h2,
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .section--photo h3 { color: #FFF !important; }
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .section--photo .text-muted { color: rgba(255, 255, 255, 0.8) !important; }
 
 /* Elements that used var(--clr-bg) as "white on a dark surface". */
-:root[data-theme="dark"] .hero__name { color: #FFF; }
-:root[data-theme="dark"] .hero-stage .btn--primary,
-:root[data-theme="dark"] .hero-stage .btn--outline {
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .hero__name { color: #FFF; }
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .hero-stage .btn--primary,
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .hero-stage .btn--outline {
   background-color: transparent; color: #FFF; outline-color: #FFF;
 }
-:root[data-theme="dark"] .hero-stage .btn--primary:hover,
-:root[data-theme="dark"] .hero-stage .btn--primary:focus-visible,
-:root[data-theme="dark"] .hero-stage .btn--outline:hover,
-:root[data-theme="dark"] .hero-stage .btn--outline:focus-visible {
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .hero-stage .btn--primary:hover,
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .hero-stage .btn--primary:focus-visible,
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .hero-stage .btn--outline:hover,
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .hero-stage .btn--outline:focus-visible {
   background-color: #FFF; color: #1B1B1B;
 }
-:root[data-theme="dark"] .nav-overlay__link,
-:root[data-theme="dark"] .nav-overlay__item--current > label > a,
-:root[data-theme="dark"] .nav-overlay__sub-link:hover,
-:root[data-theme="dark"] .nav-overlay__sub-link:focus-visible,
-:root[data-theme="dark"] .nav-overlay__close:hover .section-label { color: #FFF; }
-:root[data-theme="dark"] .intro__word { color: #FFF; }
-:root[data-theme="dark"] .tap-sound { color: #FFF; }
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .nav-overlay__link,
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .nav-overlay__item--current > label > a,
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .nav-overlay__sub-link:hover,
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .nav-overlay__sub-link:focus-visible,
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .nav-overlay__close:hover .section-label { color: #FFF; }
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .intro__word { color: #FFF; }
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .tap-sound { color: #FFF; }
 
 /* Cursor follower: difference-blend needs a bright source on the
    dark page or the dot vanishes (dark-over-dark difference ~= 0). */
-:root[data-theme="dark"] .cursor-dot  { background-color: #FFF; }
-:root[data-theme="dark"] .cursor-ring { border-color: #FFF; }
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .cursor-dot  { background-color: #FFF; }
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .cursor-ring { border-color: #FFF; }
 
 /* Chips that pair var(--clr-text) with forced-white glyphs must
    stay dark in dark mode or the white bars disappear. */
-:root[data-theme="dark"] .menu-trigger {
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .menu-trigger {
   background-color: #1B1B1B !important; border-color: #1B1B1B !important;
 }
-:root[data-theme="dark"] .music-toggle, :root[data-theme="dark"] .music-toggle.ui-on-dark {
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .music-toggle, :root[data-theme="dark"]:not(:has(#theme-cb:checked)) .music-toggle.ui-on-dark {
   background: #1B1B1B !important; border-color: #1B1B1B !important;
 }
 
 /* Navbar: dark hairline, dark scrolled panel. */
-:root[data-theme="dark"] .navbar--scrolled {
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .navbar--scrolled {
   background-color: rgba(14, 14, 17, 0.92) !important;
 }
 
 /* Solid-button hover on regular sections: lighten, not #333. */
-:root[data-theme="dark"] .btn--primary:hover,
-:root[data-theme="dark"] .btn--primary:focus-visible {
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .btn--primary:hover,
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .btn--primary:focus-visible {
   background-color: #D9D7D3; color: #0E0E11;
 }
 
@@ -2661,8 +2661,8 @@ html.no-view-timeline .prow.is-flat .prow__inner { transform: none; opacity: 1; 
 }
 .theme-toggle__icon { width: 15px; height: 15px; }
 .theme-toggle__moon { display: none; }
-:root[data-theme="dark"] .theme-toggle__sun  { display: none; }
-:root[data-theme="dark"] .theme-toggle__moon { display: block; }
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .theme-toggle__sun  { display: none; }
+:root[data-theme="dark"]:not(:has(#theme-cb:checked)) .theme-toggle__moon { display: block; }
 
 /* ─── V22: LIGHT-MODE FOOTER (complete theme coverage) ────────
    His call: the theme must reach EVERY surface. The footer is
@@ -2670,14 +2670,14 @@ html.no-view-timeline .prow.is-flat .prow__inner { transform: none; opacity: 1; 
    utility classes under the footer scope. Dark overlays (menu,
    intro, tap-sound, project overlay) stay dark in both themes -
    they are overlays, not surfaces. */
-:root[data-theme="light"] .footer.bg-footerblack { background-color: #F2F2F5 !important; }
-:root[data-theme="light"] .footer.text-white,
-:root[data-theme="light"] .footer .text-white { color: #141416 !important; }
-:root[data-theme="light"] .footer .text-\[rgba\(255\,255\,255\,0\.7\)\] { color: rgba(20, 20, 22, 0.66) !important; }
-:root[data-theme="light"] .footer .hover\:text-white:hover { color: #000 !important; }
-:root[data-theme="light"] .footer__wordmark { border-color: rgba(0, 0, 0, 0.12) !important; }
-:root[data-theme="light"] .footer .section-label { color: rgba(0, 0, 0, 0.5); }
-:root[data-theme="light"] .footer .section-label::before { background-color: rgba(0, 0, 0, 0.3); }
-:root[data-theme="light"] .footer__legal::before { background-color: #C7C7CD; }
-:root[data-theme="light"] .footer .text-\[\#545454\] { color: #8A8A90 !important; }
-:root[data-theme="light"] .footer .border-\[rgba\(255\,255\,255\,0\.08\)\] { border-color: rgba(0, 0, 0, 0.08) !important; }
+html:has(#theme-cb:checked) .footer.bg-footerblack { background-color: #F2F2F5 !important; }
+html:has(#theme-cb:checked) .footer.text-white,
+html:has(#theme-cb:checked) .footer .text-white { color: #141416 !important; }
+html:has(#theme-cb:checked) .footer .text-\[rgba\(255\,255\,255\,0\.7\)\] { color: rgba(20, 20, 22, 0.66) !important; }
+html:has(#theme-cb:checked) .footer .hover\:text-white:hover { color: #000 !important; }
+html:has(#theme-cb:checked) .footer__wordmark { border-color: rgba(0, 0, 0, 0.12) !important; }
+html:has(#theme-cb:checked) .footer .section-label { color: rgba(0, 0, 0, 0.5); }
+html:has(#theme-cb:checked) .footer .section-label::before { background-color: rgba(0, 0, 0, 0.3); }
+html:has(#theme-cb:checked) .footer__legal::before { background-color: #C7C7CD; }
+html:has(#theme-cb:checked) .footer .text-\[\#545454\] { color: #8A8A90 !important; }
+html:has(#theme-cb:checked) .footer .border-\[rgba\(255\,255\,255\,0\.08\)\] { border-color: rgba(0, 0, 0, 0.08) !important; }

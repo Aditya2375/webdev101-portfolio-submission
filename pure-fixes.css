@@ -1,2 +1,117 @@
 /* pure HTML/CSS build: hide elements whose behaviour needed JS */
 .scroll-pct { display: none; }
+
+/* ─────────────────────────────────────────────────────────────
+   FIDELITY PASS (v2): restoring the JS version's features with
+   pure HTML/CSS only. Everything below is explainable first-year
+   CSS: checkboxes + :has(), details/summary, keyframes, view().
+   ───────────────────────────────────────────────────────────── */
+
+/* Hidden checkboxes (theme toggle, intro gate) - same off-screen
+   pattern as the menu checkbox. */
+.theme-checkbox {
+  position: fixed; top: -9999px; left: -9999px;
+  width: 1px; height: 1px; opacity: 0; pointer-events: none;
+}
+
+/* 1. MOVING BACKGROUNDS: the big section photos and the menu
+   waterfall drift slowly on a keyframe loop (Ken Burns), the same
+   technique the page headers already use. */
+.section-bg img {
+  animation: kb-drift 34s ease-in-out infinite alternate;
+  transform-origin: 55% 45%;
+}
+.nav-overlay__photo img {
+  animation: kb-drift 26s ease-in-out infinite alternate;
+  transform-origin: 50% 50%;
+}
+
+/* 2. THEME TOGGLE: the label just checks #theme-cb; the token
+   rules in style.css switch via :not(:has(#theme-cb:checked)).
+   Dark stays the default (unchecked). */
+label.theme-toggle { user-select: none; -webkit-user-select: none; }
+label.theme-toggle:active { transform: scale(0.94); }
+
+/* 3. PROJECT CARDS: native disclosure, zero JS. */
+.prow__details { margin-top: 1rem; }
+.prow__details summary.prow__more {
+  display: inline-flex; align-items: center;
+  list-style: none; cursor: pointer; user-select: none;
+}
+.prow__details summary.prow__more::-webkit-details-marker { display: none; }
+.prow__details summary.prow__more::after {
+  content: ""; display: inline-block; width: 0; height: 0; margin-left: 0.5em;
+  border-left: 5px solid currentColor; border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent; transition: transform 0.25s ease;
+}
+.prow__details[open] summary.prow__more::after { transform: rotate(90deg); }
+.prow__details-body {
+  margin-top: 0.9rem; padding: 1rem 1.1rem;
+  border: 1px solid var(--clr-line); background: var(--clr-plate);
+  max-width: 46rem;
+}
+.prow__details-body p { margin: 0 0 0.8rem; font-size: 0.875rem; line-height: 1.65; color: var(--clr-muted); }
+.prow__details-body p:last-child { margin-bottom: 0; }
+.prow__details[open] .prow__details-body { animation: detailsIn 0.35s ease both; }
+@keyframes detailsIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
+/* 4. SKILL ROWS: the whole summary row is the click target, same
+   layout classes as before, plus rotates when open. */
+.skill-row--wrap { list-style: none; }
+.skill-details summary.skill-row { list-style: none; cursor: pointer; }
+.skill-details summary.skill-row::-webkit-details-marker { display: none; }
+.skill-details .skill-row__plus { transition: transform 0.25s ease; }
+.skill-details[open] .skill-row__plus { transform: rotate(45deg); }
+.skill-details .skill-row__detail {
+  display: block; padding: 0 0 1.4rem 4.5rem; max-width: 46rem;
+}
+.skill-details[open] .skill-row__detail { animation: detailsIn 0.3s ease both; }
+
+/* 5. SCRAMBLE REPLACEMENT: the mono section labels wipe in with a
+   clip-path + blur reveal as they enter the viewport (scroll-driven
+   animation, replays every pass like the JS decode did). Browsers
+   without view() timelines just show the labels statically. */
+@keyframes labelReveal {
+  from { clip-path: inset(-2px 100% -2px 0); filter: blur(3px); opacity: 0.25; }
+  to   { clip-path: inset(-2px 0 -2px 0);    filter: blur(0);   opacity: 1; }
+}
+@supports (animation-timeline: view()) {
+  .section__header .section-label {
+    animation: labelReveal linear both;
+    animation-timeline: view();
+    animation-range: entry 5% entry 55%;
+  }
+}
+
+/* 6. MUSIC PILL: native <audio controls> where the JS player sat
+   (fixed, bottom-left). color-scheme makes Chrome render the
+   native controls dark so they sit right on both themes. */
+.music-pill {
+  position: fixed; left: var(--space-md, 1.25rem); bottom: var(--space-md, 1.25rem);
+  z-index: 700; display: flex; flex-direction: column; gap: 0.4rem;
+  padding: 0.6rem 0.7rem;
+  background: var(--clr-plate); border: 1px solid var(--clr-line);
+  color-scheme: dark;
+}
+.music-pill__label { font-size: 0.6rem; }
+.music-pill audio { display: block; width: 210px; height: 36px; }
+@media (max-width: 640px) {
+  .music-pill { left: 0.75rem; bottom: 0.75rem; padding: 0.45rem 0.5rem; }
+  .music-pill audio { width: 168px; height: 32px; }
+}
+
+/* 7. INTRO GATE (home): full-screen overlay dismissed by checking
+   #intro-cb - the pure-CSS version of the JS intro screen. */
+.intro { position: fixed; inset: 0; z-index: 1200; }
+.intro__enter {
+  position: absolute; left: 50%; bottom: 18vh; transform: translateX(-50%);
+  font-family: var(--font-mono, monospace); font-size: 0.8rem; letter-spacing: 0.35em;
+  color: #fff; border: 1px solid rgba(255,255,255,0.4); padding: 0.8em 2.2em 0.8em 2.55em;
+  cursor: pointer; user-select: none; transition: background 0.2s ease, color 0.2s ease;
+}
+.intro__enter:hover { background: #fff; color: #000; }
+html:has(#intro-cb:checked) .intro { display: none; }
+
+/* The intro gate is always the black hacker screen, either theme. */
+.intro__word { color: #EDECEA !important; }
+.intro__readout { color: rgba(255, 255, 255, 0.6) !important; }
