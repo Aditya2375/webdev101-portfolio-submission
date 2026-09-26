@@ -83,21 +83,49 @@ label.theme-toggle:active { transform: scale(0.94); }
   }
 }
 
-/* 6. MUSIC PILL: native <audio controls> where the JS player sat
-   (fixed, bottom-left). color-scheme makes Chrome render the
-   native controls dark so they sit right on both themes. */
+/* 6. MUSIC PLAYER: the native <audio controls> framed like the rest of
+   the design language - flat plate, hairline, chamfered corner, mono
+   label, static equalizer glyph. Permanently dark in both themes (same
+   rule as the V20 menu glyphs: white on ink, always). The Blink vendor
+   pseudo-elements strip the native panel's own background/radius and
+   hide the overflow kebab, so the pill frame IS the chrome; engines
+   without those pseudo-elements keep their default dark rendering
+   (color-scheme), which still sits cleanly inside the frame. */
 .music-pill {
   position: fixed; left: var(--space-md, 1.25rem); bottom: var(--space-md, 1.25rem);
-  z-index: 700; display: flex; flex-direction: column; gap: 0.4rem;
-  padding: 0.6rem 0.7rem;
-  background: var(--clr-plate); border: 1px solid var(--clr-line);
+  z-index: 700; width: 288px;
+  background: #141416;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
   color-scheme: dark;
 }
-.music-pill__label { font-size: 0.6rem; }
-.music-pill audio { display: block; width: 210px; height: 36px; }
+.music-pill__head {
+  display: flex; align-items: center; justify-content: space-between; gap: 0.5rem;
+  padding: 0.5rem 0.65rem 0.45rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+.music-pill__label { font-size: 0.58rem; letter-spacing: 0.14em; color: #9B9B98; }
+.music-pill__eq { display: inline-flex; align-items: flex-end; gap: 2px; height: 10px; }
+.music-pill__eq i { display: block; width: 2px; background: #EDECEA; }
+.music-pill__eq i:nth-child(1) { height: 4px; }
+.music-pill__eq i:nth-child(2) { height: 9px; }
+.music-pill__eq i:nth-child(3) { height: 6px; }
+.music-pill__eq i:nth-child(4) { height: 10px; }
+.music-pill__eq i:nth-child(5) { height: 3px; }
+.music-pill audio {
+  display: block; height: 40px; background: transparent; outline: none;
+  /* Chrome 151 renders an overflow kebab that CSS can no longer hide via
+     the vendor pseudo-element, so the element is laid out 32px WIDER than
+     the pill and the right edge is clipped off - the kebab (rightmost
+     control) is cut away, everything else stays put. */
+  width: calc(100% + 41px);
+  clip-path: inset(0 41px 0 0);
+}
+.music-pill audio::-webkit-media-controls-enclosure { background: transparent; border-radius: 0; }
+.music-pill audio::-webkit-media-controls-panel { background: transparent; }
+.music-pill audio::-webkit-media-controls-overflow-menu-button { display: none !important; visibility: hidden; width: 0 !important; min-width: 0 !important; opacity: 0; pointer-events: none; }
 @media (max-width: 640px) {
-  .music-pill { left: 0.75rem; bottom: 0.75rem; padding: 0.45rem 0.5rem; }
-  .music-pill audio { width: 168px; height: 32px; }
+  .music-pill { left: 0.75rem; bottom: 0.75rem; width: 232px; }
 }
 
 /* 7. INTRO GATE (home): full-screen overlay dismissed by checking
