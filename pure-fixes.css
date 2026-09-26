@@ -1,0 +1,2 @@
+/* pure HTML/CSS build: hide elements whose behaviour needed JS */
+.scroll-pct { display: none; }

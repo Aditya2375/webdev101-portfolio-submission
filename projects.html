@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects - Aditya Kulkarni</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="description" content="Five projects by Aditya Kulkarni: a portfolio workflow, LLM gateway routing, Instagram automation, a doubt platform, and a CP practice pipeline.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=29">
+  <link rel="stylesheet" href="tailwind-static.css?v=29">
+  <link rel="stylesheet" href="pure-fixes.css?v=29">
+
+  <!-- Tailwind Play CDN, pinned 3.4.16 (Prompt 27): compiles the utility
+       classes in the browser at runtime, so this page needs internet for
+       Tailwind styling. Preflight is OFF - the site's own reset in
+       style.css stays the only base layer, so nothing global shifts. -->
+</head>
+<body id="top" data-page="projects">
+  <!-- SHARED: keep identical on all 5 pages -->
+  <input type="checkbox" id="menu-toggle" class="menu-checkbox" aria-hidden="true">
+  <div class="nav-overlay" role="dialog" aria-label="Site navigation" aria-modal="true">
+    <div class="nav-overlay__photo" aria-hidden="true"><img src="assets/bg/menu-waterfall.jpg" alt="" loading="lazy"></div>
+    <div class="nav-overlay__inner">
+      <label for="menu-toggle" class="nav-overlay__close" aria-label="Close navigation menu">
+        <span class="section-label">✕ CLOSE</span>
+      </label>
+      <nav class="nav-overlay__nav" aria-label="Overlay navigation">
+        <ul role="list" class="flex flex-col gap-3">
+          <li class="nav-overlay__item" data-index="01">
+            <label for="menu-toggle"><a href="index.html" class="nav-overlay__link">01 Home</a></label>
+          </li>
+          <li class="nav-overlay__item" data-index="02">
+            <label for="menu-toggle"><a href="academics.html" class="nav-overlay__link">02 Academics</a></label>
+          </li>
+          <li class="nav-overlay__item nav-overlay__item--current" data-index="03">
+            <label for="menu-toggle"><a href="projects.html" class="nav-overlay__link" aria-current="page">03 Projects</a></label>
+            <ul class="nav-overlay__sub" role="list">
+              <li><label for="menu-toggle"><a href="#portfolio" class="nav-overlay__sub-link">01 Portfolio</a></label></li>
+              <li><label for="menu-toggle"><a href="#omniroute" class="nav-overlay__sub-link">02 OmniRoute</a></label></li>
+              <li><label for="menu-toggle"><a href="#growth-bot" class="nav-overlay__sub-link">03 Growth Bot</a></label></li>
+              <li><label for="menu-toggle"><a href="#doubt-platform" class="nav-overlay__sub-link">04 Doubt Platform</a></label></li>
+              <li><label for="menu-toggle"><a href="#cp-pipeline" class="nav-overlay__sub-link">05 CP Pipeline</a></label></li>
+            </ul>
+          </li>
+          <li class="nav-overlay__item" data-index="04">
+            <label for="menu-toggle"><a href="beyond.html" class="nav-overlay__link">04 Beyond The Terminal</a></label>
+          </li>
+          <li class="nav-overlay__item" data-index="05">
+            <label for="menu-toggle"><a href="community.html" class="nav-overlay__link">05 Community</a></label>
+          </li>
+        </ul>
+      </nav>
+      <p class="nav-overlay__footer section-label" aria-hidden="true">ADITYA KULKARNI — PORTFOLIO</p>
+    </div>
+  </div>
+  <!-- fixed top bar: position:fixed + z-index, white bg, hairline bottom border -->
+  <header class="navbar fixed top-0 inset-x-0 z-[800] bg-white border-b border-hairline" id="navbar">
+    <nav class="navbar__inner flex items-center justify-between px-[clamp(1rem,4vw,3rem)] min-h-14 max-w-[1200px] mx-auto" aria-label="Primary navigation">
+      <div class="navbar__brand flex items-center gap-3">
+        <label for="menu-toggle" class="menu-trigger" aria-label="Open navigation menu"><span class="menu-trigger__bars" aria-hidden="true"><i></i><i></i><i></i></span></label>
+        <a href="index.html" class="navbar__logo font-display text-[1.1rem] font-black tracking-[-0.02em] text-ink uppercase">AK</a>
+        <span class="scroll-pct" aria-hidden="true">000</span>
+      </div>
+      <ul class="navbar__links hidden md:flex md:items-center md:gap-4 md:flex-wrap md:justify-center" role="list">
+        <li><a href="#portfolio" class="navbar__link font-mono text-[0.6875rem] font-medium tracking-[0.1em] uppercase text-muted py-[0.3em] px-[0.5em] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-ink focus-visible:text-ink focus-visible:outline-none">01 Portfolio</a></li>
+        <li><a href="#omniroute" class="navbar__link font-mono text-[0.6875rem] font-medium tracking-[0.1em] uppercase text-muted py-[0.3em] px-[0.5em] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-ink focus-visible:text-ink focus-visible:outline-none">02 OmniRoute</a></li>
+        <li><a href="#growth-bot" class="navbar__link font-mono text-[0.6875rem] font-medium tracking-[0.1em] uppercase text-muted py-[0.3em] px-[0.5em] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-ink focus-visible:text-ink focus-visible:outline-none">03 Growth Bot</a></li>
+        <li><a href="#doubt-platform" class="navbar__link font-mono text-[0.6875rem] font-medium tracking-[0.1em] uppercase text-muted py-[0.3em] px-[0.5em] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-ink focus-visible:text-ink focus-visible:outline-none">04 Doubt Platform</a></li>
+        <li><a href="#cp-pipeline" class="navbar__link font-mono text-[0.6875rem] font-medium tracking-[0.1em] uppercase text-muted py-[0.3em] px-[0.5em] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-ink focus-visible:text-ink focus-visible:outline-none">05 CP Pipeline</a></li>
+      </ul>
+      <div class="navbar__actions flex items-center gap-2">
+
+
+        <a href="index.html#contact" class="btn btn--outline navbar__cta hidden md:inline-flex">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+    <!-- V5 background photo credits (CC-licensed, Openverse):
+       projects-omniroute: "Free power zone image" by None - cc0 (https://creativecommons.org/publicdomain/zero/1.0/) - https://www.rawpixel.com/image/5913365/image-lights-public-domain-technology
+       projects-growth-bot: "Samsung Focus and Google Nexus S" by Cambodia4kids.org Beth Kanter from California, USA - by (https://creativecommons.org/licenses/by/2.0/) - https://commons.wikimedia.org/w/index.php?curid=12463676
+       projects-doubt-platform: "Outreach Program at Pro Arte" by U.S. Embassy South Africa - cc0 (https://creativecommons.org/publicdomain/zero/1.0/) - https://www.rawpixel.com/image/6485817/photo-image-public-domain-woman-people
+       projects-cp-pipeline: "Found Blur Motion" by ilouque - by (https://creativecommons.org/licenses/by/2.0/) - https://www.flickr.com/photos/38305988@N08/6169402770
+       projects-portfolio: "Web Design Wireframe" by Davmi Pics - by (https://creativecommons.org/licenses/by/2.0/) - https://www.flickr.com/photos/31954002@N08/14795071941 -->
+<main>
+    <header class="page-header section section--photo min-h-[60vh] pt-14 pb-16 relative flex flex-col justify-end border-b border-hairline" id="hero">
+      <div class="section-bg page-header__bg" aria-hidden="true"><img src="assets/bg/home-skills.jpg" alt=""></div>
+      <div class="page-header__grid" aria-hidden="true"></div>
+      <div class="container page-header__inner relative z-[1] px-[clamp(1rem,8vw,6rem)] flex flex-col gap-4">
+        <p class="section-label page-header__label">PAGE 03 / 05 — PROJECTS</p>
+        <h1 class="page-header__title font-display text-[clamp(3.5rem,12vw,9rem)] font-black uppercase tracking-[-0.03em] leading-[0.92] text-ink">
+          <span class="page-header__line block overflow-hidden"><span class="reveal-text">PROJECTS.</span></span>
+        </h1>
+        <p class="page-header__sub font-body text-[0.9375rem] text-muted max-w-[50ch] leading-[1.65]">Five things built: from AI routing and automation to a community platform and competitive programming.</p>
+      </div>
+      <!-- V8 item 4: tech ticker - one flat hairline strip, stacks of all
+           five builds scrolling slowly. Motion + life, zero clutter. -->
+      <div class="tech-ticker" aria-hidden="true">
+        <div class="tech-ticker__track">
+          <span>HTML / CSS / PROMPT ENGINEERING&nbsp;&nbsp;·&nbsp;&nbsp;POWERSHELL / NODE.JS / REST APIS&nbsp;&nbsp;·&nbsp;&nbsp;AUTOMATION / SCORING ENGINE&nbsp;&nbsp;·&nbsp;&nbsp;PLATFORM DESIGN / RANKING ALGORITHM&nbsp;&nbsp;·&nbsp;&nbsp;C++ / CODEFORCES / GITHUB ACTIONS&nbsp;&nbsp;·&nbsp;&nbsp;</span><span>HTML / CSS / PROMPT ENGINEERING&nbsp;&nbsp;·&nbsp;&nbsp;POWERSHELL / NODE.JS / REST APIS&nbsp;&nbsp;·&nbsp;&nbsp;AUTOMATION / SCORING ENGINE&nbsp;&nbsp;·&nbsp;&nbsp;PLATFORM DESIGN / RANKING ALGORITHM&nbsp;&nbsp;·&nbsp;&nbsp;C++ / CODEFORCES / GITHUB ACTIONS&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="section projects" id="projects-section" aria-labelledby="projects-heading">
+      <div class="container">
+        <div class="section__header">
+          <p class="section-label">001 PROJECTS</p>
+          <h2 class="section-title" id="projects-heading"><span class="reveal-text">All Projects</span></h2>
+        </div>
+        
+        <div class="projects__rows flex flex-col">
+          <article class="prow" id="portfolio" tabindex="0"
+            data-number="PROJECT #01" data-title="Portfolio Workflow"
+            data-summary="This very site: a custom AI prompt system drives the build, with AI-generated scroll-animation assets and a sectioned music engine."
+            data-details="This very site: a custom AI prompt system drives the build, with AI-generated scroll-animation assets and a sectioned music engine.&#10;&#10;Designed and built with an AI-assisted workflow: a custom prompt system driving the whole build, AI-generated scroll-animation assets, and a sectioned music engine.&#10;&#10;Why: prove the workflow, not just the result - every section of this site is prompt-engineered, then hand-checked.&#10;&#10;STACK: HTML / CSS / PROMPT ENGINEERING"><div class="prow__inner">
+              
+              <p class="section-label prow__number">PROJECT #01</p>
+              <h3 class="prow__title">Portfolio Workflow</h3>
+              <p class="prow__tagline">This very site - a custom AI prompt system drives the whole build.</p>
+              <p class="section-label prow__tech">HTML / CSS / PROMPT ENGINEERING</p>
+              <div class="prow__actions">
+                <button type="button" class="prow__more" data-everything>+ ALL DETAILS</button>
+                <span class="section-label prow__hint" aria-hidden="true">OR HOLD THE CARD FOR THE SUMMARY</span>
+              </div>
+            </div>
+          <div class="prow__card"><div class="section-bg" aria-hidden="true"><img src="assets/bg/projects-portfolio.jpg" alt="" loading="lazy"></div><div class="prow__hud" aria-hidden="true">
+              <span class="prow__hud-line">OBJ 01 // HTML-CSS-JS</span>
+              <span class="prow__hud-line">STATUS: LIVE</span>
+            </div><svg class="prow__brackets" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <path d="M2 10 V2 H10" /><path d="M90 2 H98 V10" /><path d="M98 90 V98 H90" /><path d="M10 98 H2 V90" />
+            </svg><div class="prow__artifact" aria-hidden="true">
+              <span class="prow__ring prow__ring--a"></span>
+              <span class="prow__ring prow__ring--b"></span>
+              <span class="prow__core"></span>
+            </div><span class="prow__scan" aria-hidden="true"></span></div></article>
+          <article class="prow" id="omniroute" tabindex="0"
+            data-number="PROJECT #02" data-title="OmniRoute"
+            data-summary="Claude Code routed through the OmniRoute local LLM gateway so it runs on Google&#39;s free Gemini API tier. Two days of debugging, one patched runtime chunk, zero paid plans."
+            data-details="Claude Code routed through the OmniRoute local LLM gateway so it runs on Google&#39;s free Gemini API tier. Two days of debugging, one patched runtime chunk, zero paid plans.&#10;&#10;Local AI coding setup: Claude Code routed through OmniRoute, an open-source local LLM gateway, so it runs on Google&#39;s free Gemini API tier instead of a paid plan. Configured the gateway endpoint, provider keys and environment variables on Windows, then debugged it over two days with an AI assistant: traced an HTTP 400 schema error to a known upstream bug and fixed it by patching compiled JavaScript runtime chunks. Local setup, not a repo.&#10;&#10;Why: free-tier local AI coding. Two days of debugging, one patched runtime chunk, zero paid plans.&#10;&#10;STACK: POWERSHELL / NODE.JS / REST APIS"><div class="prow__inner">
+              
+              <p class="section-label prow__number">PROJECT #02</p>
+              <h3 class="prow__title">OmniRoute</h3>
+              <p class="prow__tagline">Local AI coding on the free Gemini tier - zero paid plans.</p>
+              <p class="section-label prow__tech">POWERSHELL / NODE.JS / REST APIS</p>
+              <div class="prow__actions">
+                <button type="button" class="prow__more" data-everything>+ ALL DETAILS</button>
+                <span class="section-label prow__hint" aria-hidden="true">OR HOLD THE CARD FOR THE SUMMARY</span>
+              </div>
+            </div>
+          <div class="prow__card"><div class="section-bg" aria-hidden="true"><img src="assets/bg/projects-omniroute.jpg" alt="" loading="lazy"></div><div class="prow__hud" aria-hidden="true">
+              <span class="prow__hud-line">OBJ 02 // NODE-REST</span>
+              <span class="prow__hud-line">STATUS: LIVE</span>
+            </div><svg class="prow__brackets" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <path d="M2 10 V2 H10" /><path d="M90 2 H98 V10" /><path d="M98 90 V98 H90" /><path d="M10 98 H2 V90" />
+            </svg><div class="prow__artifact" aria-hidden="true">
+              <span class="prow__ring prow__ring--a"></span>
+              <span class="prow__ring prow__ring--b"></span>
+              <span class="prow__core"></span>
+            </div><span class="prow__scan" aria-hidden="true"></span></div></article>
+          <article class="prow" id="growth-bot" tabindex="0"
+            data-number="PROJECT #03" data-title="Instagram Growth Bot"
+            data-summary="Instagram automation that walks the Discover People feed, scores every account (mutuals, follow-back ratio, signals), follows above a threshold and unfollows non-follow-backs. Rate limits ended it; the learnings stayed."
+            data-details="Instagram automation that walks the Discover People feed, scores every account (mutuals, follow-back ratio, signals), follows above a threshold and unfollows non-follow-backs. Rate limits ended it; the learnings stayed.&#10;&#10;Follower-growth automation linked to my Instagram account. It walks the Discover People feed and scores every account it surfaces - mutual count, follow-back ratio and other signals consolidated into a single score. Over a set threshold, it sends a follow request, waits a set window, and unfollows accounts that don&#39;t follow back. Hit Instagram&#39;s rate limits; experiment concluded.&#10;&#10;Why: a distribution experiment - score, follow, wait, unfollow. Rate limits ended it; the learnings stayed.&#10;&#10;STACK: AUTOMATION / SCORING ENGINE"><div class="prow__inner">
+              
+              <p class="section-label prow__number">PROJECT #03</p>
+              <h3 class="prow__title">Instagram Growth Bot</h3>
+              <p class="prow__tagline">A distribution experiment - score, follow, wait, unfollow.</p>
+              <p class="section-label prow__tech">AUTOMATION / SCORING ENGINE</p>
+              <div class="prow__actions">
+                <button type="button" class="prow__more" data-everything>+ ALL DETAILS</button>
+                <span class="section-label prow__hint" aria-hidden="true">OR HOLD THE CARD FOR THE SUMMARY</span>
+              </div>
+            </div>
+          <div class="prow__card"><div class="section-bg" aria-hidden="true"><img src="assets/bg/projects-growth-bot.jpg" alt="" loading="lazy"></div><div class="prow__hud" aria-hidden="true">
+              <span class="prow__hud-line">OBJ 03 // AUTOMATION</span>
+              <span class="prow__hud-line">STATUS: CONCLUDED</span>
+            </div><svg class="prow__brackets" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <path d="M2 10 V2 H10" /><path d="M90 2 H98 V10" /><path d="M98 90 V98 H90" /><path d="M10 98 H2 V90" />
+            </svg><div class="prow__artifact" aria-hidden="true">
+              <span class="prow__ring prow__ring--a"></span>
+              <span class="prow__ring prow__ring--b"></span>
+              <span class="prow__core"></span>
+            </div><span class="prow__scan" aria-hidden="true"></span></div></article>
+          <article class="prow" id="doubt-platform" tabindex="0"
+            data-number="PROJECT #04" data-title="Junior-Senior Doubt Platform"
+            data-summary="A doubt-solving platform connecting juniors and seniors: answers and askers carry scores, sorting is score-based so the best rise, and anonymous mode lets people ask without being shamed."
+            data-details="A doubt-solving platform connecting juniors and seniors: answers and askers carry scores, sorting is score-based so the best rise, and anonymous mode lets people ask without being shamed.&#10;&#10;A doubt-solving platform where seniors and juniors connect. Anyone posts a doubt freely; answers are rated on helpfulness and practicality and earn a score; askers carry a score too, and sorting is score-based, so the best answers and the best askers rise to the top. An anonymous mode lets people ask without being shamed.&#10;&#10;Why: juniors had doubts, seniors had answers, and shame kept people quiet - scores sort the best up, anonymity asks freely.&#10;&#10;STACK: PLATFORM DESIGN / RANKING ALGORITHM"><div class="prow__inner">
+              
+              <p class="section-label prow__number">PROJECT #04</p>
+              <h3 class="prow__title">Junior-Senior Doubt Platform</h3>
+              <p class="prow__tagline">Score-based sorting floats the best answers; anonymity kills the shame.</p>
+              <p class="section-label prow__tech">PLATFORM DESIGN / RANKING ALGORITHM</p>
+              <div class="prow__actions">
+                <button type="button" class="prow__more" data-everything>+ ALL DETAILS</button>
+                <span class="section-label prow__hint" aria-hidden="true">OR HOLD THE CARD FOR THE SUMMARY</span>
+              </div>
+            </div>
+          <div class="prow__card"><div class="section-bg" aria-hidden="true"><img src="assets/bg/projects-doubt-platform.jpg" alt="" loading="lazy"></div><div class="prow__hud" aria-hidden="true">
+              <span class="prow__hud-line">OBJ 04 // PLATFORM</span>
+              <span class="prow__hud-line">STATUS: CONCEPT</span>
+            </div><svg class="prow__brackets" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <path d="M2 10 V2 H10" /><path d="M90 2 H98 V10" /><path d="M98 90 V98 H90" /><path d="M10 98 H2 V90" />
+            </svg><div class="prow__artifact" aria-hidden="true">
+              <span class="prow__ring prow__ring--a"></span>
+              <span class="prow__ring prow__ring--b"></span>
+              <span class="prow__core"></span>
+            </div><span class="prow__scan" aria-hidden="true"></span></div></article>
+          <article class="prow" id="cp-pipeline" tabindex="0"
+            data-number="PROJECT #05" data-title="CP Practice Pipeline"
+            data-summary="Competitive programming practice with a pipeline behind it: Codeforces solutions auto-push to GitHub via the CFPusher extension, plus a daily streak system."
+            data-details="Competitive programming practice with a pipeline behind it: Codeforces solutions auto-push to GitHub via the CFPusher extension, plus a daily streak system.&#10;&#10;Competitive programming practice with a pipeline behind it: Codeforces solutions auto-pushed to GitHub via the CFPusher extension, plus a daily streak system.&#10;&#10;Why: daily practice with zero friction - solutions auto-push to GitHub and the streak keeps itself.&#10;&#10;STACK: C++ / CODEFORCES / GITHUB ACTIONS"><div class="prow__inner">
+              
+              <p class="section-label prow__number">PROJECT #05</p>
+              <h3 class="prow__title">CP Practice Pipeline</h3>
+              <p class="prow__tagline">Codeforces practice with zero friction - the streak keeps itself.</p>
+              <p class="section-label prow__tech">C++ / CODEFORCES / GITHUB ACTIONS</p>
+              <div class="prow__actions">
+                <button type="button" class="prow__more" data-everything>+ ALL DETAILS</button>
+                <span class="section-label prow__hint" aria-hidden="true">OR HOLD THE CARD FOR THE SUMMARY</span>
+              </div>
+            </div>
+          <div class="prow__card"><div class="section-bg" aria-hidden="true"><img src="assets/bg/projects-cp-pipeline.jpg" alt="" loading="lazy"></div><div class="prow__hud" aria-hidden="true">
+              <span class="prow__hud-line">OBJ 05 // C++-CI</span>
+              <span class="prow__hud-line">STATUS: ACTIVE</span>
+            </div><svg class="prow__brackets" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <path d="M2 10 V2 H10" /><path d="M90 2 H98 V10" /><path d="M98 90 V98 H90" /><path d="M10 98 H2 V90" />
+            </svg><div class="prow__artifact" aria-hidden="true">
+              <span class="prow__ring prow__ring--a"></span>
+              <span class="prow__ring prow__ring--b"></span>
+              <span class="prow__core"></span>
+            </div><span class="prow__scan" aria-hidden="true"></span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="next-page" aria-label="Next page">
+      <div class="container">
+        <p class="section-label">NEXT</p>
+        <a href="beyond.html" class="next-page__link">
+          <span class="next-page__name">Beyond The Terminal</span>
+          <span class="next-page__arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer bg-footerblack text-white pt-16">
+    <div class="footer__wordmark font-display text-[clamp(3rem,15vw,10rem)] font-black uppercase tracking-[-0.04em] leading-[0.9] text-white px-[clamp(1rem,5vw,5rem)] pb-8 border-b border-[rgba(255,255,255,0.12)]" aria-hidden="true">ADITYA</div>
+    <div class="container footer__bottom pt-8 pb-16 flex flex-col gap-8">
+      <ul class="footer__acrostic" aria-label="Aditya, in six words">
+        <li><span class="footer__acrostic-letter" aria-hidden="true">A</span><span class="footer__acrostic-word">Ambitious</span></li>
+        <li><span class="footer__acrostic-letter" aria-hidden="true">D</span><span class="footer__acrostic-word">Determined</span></li>
+        <li><span class="footer__acrostic-letter" aria-hidden="true">I</span><span class="footer__acrostic-word">Inventive</span></li>
+        <li><span class="footer__acrostic-letter" aria-hidden="true">T</span><span class="footer__acrostic-word">Tireless</span></li>
+        <li><span class="footer__acrostic-letter" aria-hidden="true">Y</span><span class="footer__acrostic-word">Youthful</span></li>
+        <li><span class="footer__acrostic-letter" aria-hidden="true">A</span><span class="footer__acrostic-word">Adventurous</span></li>
+      </ul>
+      <div class="footer__cols flex flex-wrap gap-16">
+        <nav class="footer__col flex flex-col gap-4 min-w-[130px]" aria-label="Footer site navigation">
+          <p class="footer__col-label section-label">Navigation</p>
+          <ul role="list" class="flex flex-col gap-3">
+            <li><a href="index.html" class="footer__link font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white">Home</a></li>
+            <li><a href="academics.html" class="footer__link font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white">Academics</a></li>
+            <li><a href="projects.html" class="footer__link font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white">Projects</a></li>
+            <li><a href="beyond.html" class="footer__link font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white">Beyond</a></li>
+            <li><a href="community.html" class="footer__link font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white">Community</a></li>
+          </ul>
+        </nav>
+        <nav class="footer__col flex flex-col gap-4 min-w-[130px]" aria-label="Social links">
+          <p class="footer__col-label section-label">Connect</p>
+          <ul role="list" class="flex flex-col gap-3">
+            <li><a href="mailto:adityakulkarni2708@gmail.com" class="footer__link font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white">Email</a></li>
+            <li><a href="https://www.linkedin.com/in/adityaaakulkarni" class="footer__link font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://github.com/Aditya2375" class="footer__link font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="https://www.instagram.com/adityaa_kulkarni_" class="footer__link font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          </ul>
+        </nav>
+        <nav class="footer__col flex flex-col gap-4 min-w-[130px]" aria-label="Sections on this page">
+          <p class="footer__col-label section-label">On This Page</p>
+          <ul role="list" class="flex flex-col gap-3">
+            <li><a href="#omniroute" class="footer__link font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white">Omniroute</a></li>
+            <li><a href="#cp-pipeline" class="footer__link font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white">CP Pipeline</a></li>
+            <li><a href="#doubt-platform" class="footer__link font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white">Doubt Platform</a></li>
+            <li><a href="#growth-bot" class="footer__link font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white">Growth Bot</a></li>
+            <li><a href="#portfolio" class="footer__link font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white">Portfolio</a></li>
+          </ul>
+        </nav>
+        <div class="footer__col flex flex-col gap-4 min-w-[130px]">
+          <p class="footer__col-label section-label">Colophon</p>
+          <ul role="list" class="flex flex-col gap-3">
+            <li class="font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)]">Archivo Black / Inter / Plex Mono</li>
+            <li class="font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)]">Hand-rolled CSS + scroll-driven animations</li>
+            <li class="font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)]">AI portraits + picsum.photos</li>
+          </ul>
+        </div>
+        <div class="footer__col flex flex-col gap-4 min-w-[130px]">
+          <p class="footer__col-label section-label">This Site</p>
+          <ul role="list" class="flex flex-col gap-3">
+            <li class="font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)]">Hand-built HTML / CSS</li>
+            <li class="font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)]">Bengaluru &mdash; <span class="footer-clock">--:--</span> IST</li>
+            <li><a href="#top" class="footer__link font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white">Back to top &#8593;</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer__legal section-label text-[#545454] mt-4 border-t border-[rgba(255,255,255,0.08)] pt-4">
+        &copy; <span id="footer-year">2026</span> Aditya Kulkarni &mdash; Hand-built with HTML &amp; CSS
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
