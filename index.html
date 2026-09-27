@@ -1,518 +1,246 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aditya Kulkarni | Portfolio</title>
+  <meta name="description" content="Aditya Kulkarni - first-year CS and AI student at Scaler School of Technology, Bengaluru. Projects, skills and contact.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <meta name="description" content="Aditya Kulkarni — first-year CS and AI student at Scaler School of Technology, builder, runner, and competitive programmer.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=29">
-  <link rel="stylesheet" href="tailwind-static.css?v=29">
-  <link rel="stylesheet" href="pure-fixes.css?v=29">
-
-  <!-- Tailwind Play CDN, pinned 3.4.16 (Prompt 27): compiles the utility
-       classes in the browser at runtime, so this page needs internet for
-       Tailwind styling. Preflight is OFF - the site's own reset in
-       style.css stays the only base layer, so nothing global shifts. -->
+  <link rel="stylesheet" href="style.css">
 </head>
-<body id="top" data-page="home">
-  <!-- Pure-CSS intro gate: the ENTER label checks a hidden checkbox and
-       html:has(#intro-cb:checked) hides this overlay - no JavaScript. -->
-  <input type="checkbox" id="intro-cb" class="theme-checkbox" aria-hidden="true" tabindex="-1">
-  <div class="intro" role="dialog" aria-label="Enter the portfolio">
-    <div class="intro__stage">
-      <p class="intro__word" aria-hidden="true">A<span class="intro__d">D</span>ITYA</p>
-    </div>
-    <p class="intro__readout" role="status">//PORTFOLIO READY - PRESS ENTER</p>
-    <label for="intro-cb" class="intro__enter">ENTER</label>
-  </div>
+<body class="bg-slate-50 font-sans text-slate-800 antialiased">
 
-  <!-- SHARED: keep identical on all 5 pages -->
-  <input type="checkbox" id="menu-toggle" class="menu-checkbox" aria-hidden="true">
-  <input type="checkbox" id="theme-cb" class="theme-checkbox" aria-hidden="true" tabindex="-1">
-  <div class="nav-overlay" role="dialog" aria-label="Site navigation" aria-modal="true">
-    <div class="nav-overlay__photo" aria-hidden="true"><img src="assets/bg/menu-waterfall.jpg" alt="" loading="lazy"></div>
-    <div class="nav-overlay__inner">
-      <label for="menu-toggle" class="nav-overlay__close" aria-label="Close navigation menu">
-        <span class="section-label">✕ CLOSE</span>
-      </label>
-      <nav class="nav-overlay__nav" aria-label="Overlay navigation">
-        <ul role="list" class="flex flex-col gap-3">
-          <li class="nav-overlay__item nav-overlay__item--current" data-index="01">
-            <label for="menu-toggle"><a href="index.html" class="nav-overlay__link" aria-current="page">01 Home</a></label>
-            <ul class="nav-overlay__sub" role="list">
-              <li><label for="menu-toggle"><a href="#about" class="nav-overlay__sub-link">About</a></label></li>
-              <li><label for="menu-toggle"><a href="#skills" class="nav-overlay__sub-link">Skills</a></label></li>
-              <li><label for="menu-toggle"><a href="#projects" class="nav-overlay__sub-link">Projects</a></label></li>
-              <li><label for="menu-toggle"><a href="#explore" class="nav-overlay__sub-link">Explore</a></label></li>
-              <li><label for="menu-toggle"><a href="#contact" class="nav-overlay__sub-link">Contact</a></label></li>
-            </ul>
-          </li>
-          <li class="nav-overlay__item" data-index="02">
-            <label for="menu-toggle"><a href="academics.html" class="nav-overlay__link">02 Academics</a></label>
-          </li>
-          <li class="nav-overlay__item" data-index="03">
-            <label for="menu-toggle"><a href="projects.html" class="nav-overlay__link">03 Projects</a></label>
-          </li>
-          <li class="nav-overlay__item" data-index="04">
-            <label for="menu-toggle"><a href="beyond.html" class="nav-overlay__link">04 Beyond The Terminal</a></label>
-          </li>
-          <li class="nav-overlay__item" data-index="05">
-            <label for="menu-toggle"><a href="community.html" class="nav-overlay__link">05 Community</a></label>
-          </li>
-        </ul>
-      </nav>
-      <p class="nav-overlay__footer section-label" aria-hidden="true">ADITYA KULKARNI — PORTFOLIO</p>
-    </div>
-  </div>
-  <!-- fixed top bar: position:fixed + z-index, white bg, hairline bottom border -->
-  <header class="navbar fixed top-0 inset-x-0 z-[800] bg-white border-b border-hairline" id="navbar">
-    <nav class="navbar__inner flex items-center justify-between px-[clamp(1rem,4vw,3rem)] min-h-14 max-w-[1200px] mx-auto" aria-label="Primary navigation">
-      <div class="navbar__brand flex items-center gap-3">
-        <label for="menu-toggle" class="menu-trigger" aria-label="Open navigation menu"><span class="menu-trigger__bars" aria-hidden="true"><i></i><i></i><i></i></span></label>
-        <a href="index.html" class="navbar__logo font-display text-[1.1rem] font-black tracking-[-0.02em] text-ink uppercase">AK</a>
-        <span class="scroll-pct" aria-hidden="true">000</span>
-      </div>
-      <ul class="navbar__links hidden md:flex md:items-center md:gap-4 md:flex-wrap md:justify-center" role="list">
-        <li><a href="#about" class="navbar__link font-mono text-[0.6875rem] font-medium tracking-[0.1em] uppercase text-muted py-[0.3em] px-[0.5em] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-ink focus-visible:text-ink focus-visible:outline-none">About</a></li>
-        <li><a href="#skills" class="navbar__link font-mono text-[0.6875rem] font-medium tracking-[0.1em] uppercase text-muted py-[0.3em] px-[0.5em] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-ink focus-visible:text-ink focus-visible:outline-none">Skills</a></li>
-        <li><a href="#projects" class="navbar__link font-mono text-[0.6875rem] font-medium tracking-[0.1em] uppercase text-muted py-[0.3em] px-[0.5em] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-ink focus-visible:text-ink focus-visible:outline-none">Projects</a></li>
-        <li><a href="#explore" class="navbar__link font-mono text-[0.6875rem] font-medium tracking-[0.1em] uppercase text-muted py-[0.3em] px-[0.5em] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-ink focus-visible:text-ink focus-visible:outline-none">Explore</a></li>
-        <li><a href="#contact" class="navbar__link font-mono text-[0.6875rem] font-medium tracking-[0.1em] uppercase text-muted py-[0.3em] px-[0.5em] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-ink focus-visible:text-ink focus-visible:outline-none">Contact</a></li>
-      </ul>
-      <div class="navbar__actions flex items-center gap-2">
-
-
-        <label for="theme-cb" class="theme-toggle" aria-label="Switch between dark and light theme">
-          <svg class="theme-toggle__icon theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-          <svg class="theme-toggle__icon theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </label>
-        <a href="index.html#contact" class="btn btn--outline navbar__cta hidden md:inline-flex">Contact</a>
+  <!-- Navigation Bar (Flexbox + sticky positioning) -->
+  <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
+    <nav class="mx-auto flex max-w-5xl flex-col items-center gap-3 px-6 py-4 sm:flex-row sm:justify-between">
+      <a href="#top" class="text-lg font-bold tracking-tight text-slate-900">Aditya<span class="text-indigo-600">.</span></a>
+      <div class="flex flex-wrap items-center justify-center gap-1 text-sm font-medium">
+        <a href="#about" class="rounded-lg px-3 py-2 transition-colors hover:bg-slate-100 hover:text-indigo-600">About</a>
+        <a href="#skills" class="rounded-lg px-3 py-2 transition-colors hover:bg-slate-100 hover:text-indigo-600">Skills</a>
+        <a href="#projects" class="rounded-lg px-3 py-2 transition-colors hover:bg-slate-100 hover:text-indigo-600">Projects</a>
+        <a href="#education" class="rounded-lg px-3 py-2 transition-colors hover:bg-slate-100 hover:text-indigo-600">Education</a>
+        <a href="#contact" class="rounded-lg bg-indigo-600 px-4 py-2 text-white transition-colors hover:bg-indigo-700">Contact</a>
       </div>
     </nav>
   </header>
 
-    <!-- V5 background photo credits (CC-licensed, Openverse):
-       home-contact: "A hand presses the dial of a vintage rotary telephone on a desk next to a sleek laptop" by Shixart1985 - by (https://creativecommons.org/licenses/by/2.0/) - https://commons.wikimedia.org/w/index.php?curid=190999318
-       home-skills: "HTML Code" by Sebastian Fuss - by-sa (https://creativecommons.org/licenses/by-sa/2.0/) - https://www.flickr.com/photos/37868239@N02/5848333881
-       home-projects: "The completed workplace" by yprime - by (https://creativecommons.org/licenses/by/2.0/) - https://www.flickr.com/photos/24613260@N06/5569638156
-       home-about: "University of Virginia" by Phil Roeder - by - https://www.flickr.com/photos/88876166@N00/5551813436 -->
-<main>
-    <!-- SHARED: keep identical on all 5 pages -->
-    <!-- ── HERO: 12-frame face-turn scroll sequence (Prompt 9G) ──
-         300vh scroll stage; a sticky 100svh screen holds 12 stacked frames.
-         <picture> picks the set: wide screens (min-aspect-ratio 1/1) download
-         only the 16:9 landscape set (face right of centre, headline over the
-         dark left half); phones and portrait tablets download only the 4:5 set. -->
-    <section class="hero-stage" id="hero" aria-labelledby="hero-heading" style="--frame-count: 38">
-      <!-- FACE-CLIP ACTIVE: script.js swaps the 12-frame stack for the
-           scroll-scrubbed AI clip (assets/video/face-turn.mp4). The frames
-           stay in the DOM as the no-JS / reduced-motion / pre-load fallback. -->
-      <div class="hero-sticky">
-        <!-- Frame stack: frame01 (side profile) sits at the bottom, frame12
-             (facing camera) on top. Each frame carries --i; the stage carries
-             --frame-count; the CSS slices the scroll range from those two. -->
-        <div class="hero-bg">
-          <picture class="portrait-frame portrait-frame--first" style="--i: 1">
-            <img src="assets/frames/frame01.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" fetchpriority="high">
-          </picture>
-          <picture class="portrait-frame" style="--i: 2">
-            <img src="assets/frames/frame02.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 3">
-            <img src="assets/frames/frame03.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 4">
-            <img src="assets/frames/frame04.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 5">
-            <img src="assets/frames/frame05.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 6">
-            <img src="assets/frames/frame06.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 7">
-            <img src="assets/frames/frame07.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 8">
-            <img src="assets/frames/frame08.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 9">
-            <img src="assets/frames/frame09.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 10">
-            <img src="assets/frames/frame10.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 11">
-            <img src="assets/frames/frame11.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 12">
-            <img src="assets/frames/frame12.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 13">
-            <img src="assets/frames/frame13.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 14">
-            <img src="assets/frames/frame14.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 15">
-            <img src="assets/frames/frame15.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 16">
-            <img src="assets/frames/frame16.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 17">
-            <img src="assets/frames/frame17.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 18">
-            <img src="assets/frames/frame18.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 19">
-            <img src="assets/frames/frame19.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 20">
-            <img src="assets/frames/frame20.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 21">
-            <img src="assets/frames/frame21.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 22">
-            <img src="assets/frames/frame22.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 23">
-            <img src="assets/frames/frame23.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 24">
-            <img src="assets/frames/frame24.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 25">
-            <img src="assets/frames/frame25.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 26">
-            <img src="assets/frames/frame26.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 27">
-            <img src="assets/frames/frame27.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 28">
-            <img src="assets/frames/frame28.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 29">
-            <img src="assets/frames/frame29.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 30">
-            <img src="assets/frames/frame30.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 31">
-            <img src="assets/frames/frame31.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 32">
-            <img src="assets/frames/frame32.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 33">
-            <img src="assets/frames/frame33.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 34">
-            <img src="assets/frames/frame34.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 35">
-            <img src="assets/frames/frame35.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 36">
-            <img src="assets/frames/frame36.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame" style="--i: 37">
-            <img src="assets/frames/frame37.jpg?v=29" alt="" aria-hidden="true" width="1920" height="1080" decoding="async">
-          </picture>
-          <picture class="portrait-frame portrait-frame--default" style="--i: 38">
-            <img src="assets/frames/frame38.jpg?v=29" alt="AI-generated portrait of Aditya Kulkarni" width="1920" height="1080" decoding="async">
-          </picture>
-        </div>
-        <!-- FLAT readability overlay above the frames, below the text.
-             rgba(0,0,0,0.35), no gradient - the design bans gradients. -->
-        <div class="hero-overlay" aria-hidden="true"></div>
-        <div class="hero__grid-lines" aria-hidden="true"></div>
-        <div class="hero__crosshair" aria-hidden="true"></div>
-        <div class="hero__content">
-          <p class="section-label">000 HELLO</p>
-          <h1 class="hero__name" id="hero-heading">
-            <span class="hero__line"><span class="reveal-text">ADITYA</span></span>
-            <span class="hero__line"><span class="reveal-text">KULKARNI.</span></span>
-          </h1>
-          <p class="hero__sub">First-year CS and AI at Scaler School of Technology, Bengaluru, and parallelly pursuing an undergraduation in Computer Science from BITS Pilani. I build tools, break them, and fix them in public.</p>
-          <div class="hero__ctas">
-            <a href="#projects" class="btn btn--primary">View Projects</a>
-            <a href="#contact" class="btn btn--outline">Get In Touch</a>
+  <main id="top">
+
+    <!-- Hero Section -->
+    <section class="mx-auto max-w-5xl px-6 py-16 md:py-24">
+      <div class="flex flex-col-reverse items-center gap-10 md:flex-row md:justify-between">
+        <div class="max-w-xl animate-fade-in-up">
+          <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-indigo-600">Hello, I'm</p>
+          <h1 class="mb-4 text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl">Aditya Kulkarni</h1>
+          <p class="mb-2 text-lg font-medium text-slate-700">First-year CS &amp; AI student at Scaler School of Technology, Bengaluru.</p>
+          <p class="mb-8 text-slate-600">Parallelly pursuing an undergraduation in Computer Science from BITS Pilani. I build tools, break them, and fix them in public.</p>
+          <div class="flex flex-wrap gap-3">
+            <a href="#projects" class="rounded-lg bg-indigo-600 px-5 py-2.5 font-medium text-white transition-colors hover:bg-indigo-700">View My Work</a>
+            <a href="#contact" class="rounded-lg border border-slate-300 px-5 py-2.5 font-medium text-slate-700 transition-colors hover:border-indigo-600 hover:text-indigo-600">Get In Touch</a>
           </div>
         </div>
-        <div class="hero__scroll-hint" aria-hidden="true"><span class="section-label">SCROLL ↓</span></div>
+        <img src="assets/frames/orig4x5/frame12.jpg" alt="Portrait of Aditya Kulkarni" class="h-64 w-52 rounded-2xl border border-slate-200 object-cover shadow-md md:h-80 md:w-64">
       </div>
     </section>
 
-    <!-- ── ABOUT ──────────────────────────────────────── -->
-    <section class="section about section--photo" id="about" aria-labelledby="about-heading">
-      <div class="section-bg" aria-hidden="true"><img src="assets/bg/home-about.jpg" alt="" loading="lazy"></div>
-      <div class="container">
-        <div class="section__header">
-          <p class="section-label">001 ABOUT</p>
-          <h2 class="section-title" id="about-heading"><span class="reveal-text">Who I Am</span></h2>
+    <!-- About Section -->
+    <section id="about" class="scroll-mt-20 border-t border-slate-200 bg-white">
+      <div class="mx-auto max-w-5xl px-6 py-16 md:py-24">
+        <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-indigo-600">About</p>
+        <h2 class="mb-6 text-3xl font-bold tracking-tight text-slate-900">Who I am</h2>
+        <div class="max-w-3xl space-y-4 text-slate-600">
+          <p>I'm Aditya, 18, from Pune, now in Bengaluru studying CS and AI at Scaler School of Technology, and parallelly pursuing an undergraduation in Computer Science from BITS Pilani. I scored a 97.4 percentile in JEE Main, 98.4 in MHT-CET, and AIR 21,300 in JEE Advanced, and I picked SST because it lets me build from day one - right now that means AI tooling, web projects, and competitive programming in C++.</p>
+          <p>Outside the compiler, I run and cycle, and I have been trekking with GGIM Pune for seven years - monthly Sahyadri climbs and five Himalayan summits. I play guitar and piano, led my school's debate club, and was school captain. I post what I'm learning on LinkedIn as I go.</p>
         </div>
-        <div class="about__grid flex flex-col gap-16 md:flex-row">
-          <div class="about__text flex flex-col gap-8 font-body text-[0.875rem] leading-[1.75] text-muted max-w-[52ch] md:max-w-none md:flex-[3] md:pr-[4vw] md:border-r md:border-hairline">
-            <p>
-              I'm Aditya Kulkarni, 18, from Pune — now in Bengaluru studying CS and AI at Scaler School of Technology, and parallelly pursuing an undergraduation in Computer Science from BITS Pilani. I scored a 97.4 percentile in JEE Main, a 98.4 in MHT-CET, and AIR 21,300 in JEE Advanced, and I picked SST because it lets me build from day one. Right now that means AI tooling, web projects, and competitive programming in C++.
-            </p>
-            <p>
-              Outside the compiler, I run and cycle, and I have been trekking with GGIM Pune for the past seven years — monthly Sahyadri climbs, five Himalayan summits, and the first to summit Thorate Lake. I play the guitar and piano and sing too, led my school's debate club, was the school captain, and organized all of the school and society events. I post what I'm learning on LinkedIn as I go.
-            </p>
+      </div>
+    </section>
+
+    <!-- Skills Section (Grid of cards, pills inside) -->
+    <section id="skills" class="scroll-mt-20 border-t border-slate-200">
+      <div class="mx-auto max-w-5xl px-6 py-16 md:py-24">
+        <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-indigo-600">Skills</p>
+        <h2 class="mb-10 text-3xl font-bold tracking-tight text-slate-900">What I know</h2>
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+          <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
+            <h3 class="mb-4 text-lg font-semibold text-slate-900">Languages</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700">HTML</span>
+              <span class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700">CSS</span>
+              <span class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700">C++</span>
+              <span class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700">Java</span>
+              <span class="rounded-full bg-indigo-50 px-3 py-1 text-sm text-indigo-700">JavaScript (learning)</span>
+            </div>
           </div>
-          <div class="about__readout-col flex flex-col md:flex-[2] md:pl-[4vw]">
-            <div class="about__readout flex flex-col gap-1 mt-4 pt-4 border-t border-hairline" aria-hidden="true">
-              <p class="section-label">FILE_01 / NAME - ADITYA KULKARNI</p>
-              <p class="section-label">FILE_02 / BASE - BENGALURU</p>
-              <p class="section-label">FILE_03 / ROLE - CS STUDENT + BUILDER</p>
-              <p class="section-label">FILE_04 / LANGUAGES - HINDI / MARATHI / ENGLISH / KANNADA (UNDERSTAND + SOME SPOKEN)</p>
+          <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
+            <h3 class="mb-4 text-lg font-semibold text-slate-900">Frontend</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700">Flexbox</span>
+              <span class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700">CSS Grid</span>
+              <span class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700">Responsive design</span>
+              <span class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700">CSS animation</span>
+              <span class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700">Tailwind CSS</span>
+            </div>
+          </div>
+          <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
+            <h3 class="mb-4 text-lg font-semibold text-slate-900">Tools</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700">Git</span>
+              <span class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700">GitHub</span>
+              <span class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700">VS Code</span>
+              <span class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700">PowerShell</span>
+              <span class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700">Node.js</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ── SKILLS ─────────────────────────────────────── -->
-    <section class="section skills bg-accent border-t-[rgba(0,0,0,0.12)]" id="skills" aria-labelledby="skills-heading">
-      <div class="container">
-        <div class="section__header">
-          <p class="section-label">002 SKILLS</p>
-          <h2 class="section-title" id="skills-heading"><span class="reveal-text">What I Know</span></h2>
-        </div>
-        <ul class="skills__list flex flex-col" role="list">
-          <li class="skill-row--wrap">
-          <details class="skill-details">
-            <summary class="skill-row flex items-baseline gap-8 py-6 border-b border-[rgba(0,0,0,0.12)] flex-wrap">
-              <span class="skill-row__index section-label shrink-0 min-w-10">01</span>
-              <span class="skill-row__name font-display text-[1.1rem] font-black uppercase tracking-[-0.02em] text-ink shrink-0 min-w-40">Languages</span>
-              <span class="skill-row__items font-body text-[0.875rem] text-[rgba(0,0,0,0.65)] grow">HTML / CSS / Java / C / C++ (competitive programming) / JavaScript (learning)</span>
-              <span class="skill-row__plus font-mono text-[1.1rem] font-normal text-[rgba(0,0,0,0.35)] shrink-0 ml-auto" aria-hidden="true">+</span>
-            </summary>
-            <span class="skill-row__detail font-body text-[0.8125rem] leading-[1.65] text-[rgba(0,0,0,0.65)]">Comfortable switching between C++ for contests and Java for coursework. JavaScript is the current obsession - this site's engine is hand-written vanilla JS, no frameworks.</span>
-          </details>
-        </li>
-          <li class="skill-row--wrap">
-          <details class="skill-details">
-            <summary class="skill-row flex items-baseline gap-8 py-6 border-b border-[rgba(0,0,0,0.12)] flex-wrap">
-              <span class="skill-row__index section-label shrink-0 min-w-10">02</span>
-              <span class="skill-row__name font-display text-[1.1rem] font-black uppercase tracking-[-0.02em] text-ink shrink-0 min-w-40">Frontend</span>
-              <span class="skill-row__items font-body text-[0.875rem] text-[rgba(0,0,0,0.65)] grow">responsive layouts / Flexbox + Grid / CSS animation / this site, hand-built</span>
-              <span class="skill-row__plus font-mono text-[1.1rem] font-normal text-[rgba(0,0,0,0.35)] shrink-0 ml-auto" aria-hidden="true">+</span>
-            </summary>
-            <span class="skill-row__detail font-body text-[0.8125rem] leading-[1.65] text-[rgba(0,0,0,0.65)]">Responsive layouts, Flexbox + Grid, scroll-driven animation. This site is the proof of work: hand-built, no templates, readable with JavaScript switched off.</span>
-          </details>
-        </li>
-          <li class="skill-row--wrap">
-          <details class="skill-details">
-            <summary class="skill-row flex items-baseline gap-8 py-6 border-b border-[rgba(0,0,0,0.12)] flex-wrap">
-              <span class="skill-row__index section-label shrink-0 min-w-10">03</span>
-              <span class="skill-row__name font-display text-[1.1rem] font-black uppercase tracking-[-0.02em] text-ink shrink-0 min-w-40">Tools</span>
-              <span class="skill-row__items font-body text-[0.875rem] text-[rgba(0,0,0,0.65)] grow">Git / GitHub / PowerShell / Node.js + npm / REST APIs (curl) / Claude Code / Antigravity</span>
-              <span class="skill-row__plus font-mono text-[1.1rem] font-normal text-[rgba(0,0,0,0.35)] shrink-0 ml-auto" aria-hidden="true">+</span>
-            </summary>
-            <span class="skill-row__detail font-body text-[0.8125rem] leading-[1.65] text-[rgba(0,0,0,0.65)]">Git + GitHub for everything, PowerShell and Node.js for automation, curl for API debugging, and an AI-assisted workflow in Google Antigravity for build speed.</span>
-          </details>
-        </li>
-          <li class="skill-row--wrap">
-          <details class="skill-details">
-            <summary class="skill-row flex items-baseline gap-8 py-6 border-b border-[rgba(0,0,0,0.12)] flex-wrap">
-              <span class="skill-row__index section-label shrink-0 min-w-10">04</span>
-              <span class="skill-row__name font-display text-[1.1rem] font-black uppercase tracking-[-0.02em] text-ink shrink-0 min-w-40">Learning</span>
-              <span class="skill-row__items font-body text-[0.875rem] text-[rgba(0,0,0,0.65)] grow">data structures + algorithms / backend / JavaScript / C / competitive programming / open source contribution</span>
-              <span class="skill-row__plus font-mono text-[1.1rem] font-normal text-[rgba(0,0,0,0.35)] shrink-0 ml-auto" aria-hidden="true">+</span>
-            </summary>
-            <span class="skill-row__detail font-body text-[0.8125rem] leading-[1.65] text-[rgba(0,0,0,0.65)]">Data structures + algorithms practice, backend fundamentals next, then deeper JavaScript. Open source contribution is the standing 2026 goal.</span>
-          </details>
-        </li>
-          <li class="skill-row--wrap">
-          <details class="skill-details">
-            <summary class="skill-row flex items-baseline gap-8 py-6 border-b border-[rgba(0,0,0,0.12)] flex-wrap">
-              <span class="skill-row__index section-label shrink-0 min-w-10">05</span>
-              <span class="skill-row__name font-display text-[1.1rem] font-black uppercase tracking-[-0.02em] text-ink shrink-0 min-w-40">Off Keyboard</span>
-              <span class="skill-row__items font-body text-[0.875rem] text-[rgba(0,0,0,0.65)] grow">communication + articulation (debate club lead, Orators SST) / decision-making under pressure / critical thinking / participated in 6 hackathons with multiple podium finishes / gym 5 days a week</span>
-              <span class="skill-row__plus font-mono text-[1.1rem] font-normal text-[rgba(0,0,0,0.35)] shrink-0 ml-auto" aria-hidden="true">+</span>
-            </summary>
-            <span class="skill-row__detail font-body text-[0.8125rem] leading-[1.65] text-[rgba(0,0,0,0.65)]">Debate club lead and Orators SST (WTFQ winners), 6 hackathons with multiple podium finishes, gym 5 days a week - decisions stay calm under pressure.</span>
-          </details>
-        </li>
-        </ul>
-      </div>
-    </section>
+    <!-- Projects Section (Grid gallery) -->
+    <section id="projects" class="scroll-mt-20 border-t border-slate-200 bg-white">
+      <div class="mx-auto max-w-5xl px-6 py-16 md:py-24">
+        <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-indigo-600">Projects</p>
+        <h2 class="mb-10 text-3xl font-bold tracking-tight text-slate-900">Things I've built</h2>
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
 
-    <!-- ── FEATURED PROJECTS ────────────────────────────────────── -->
-    <div class="bgspan section--photo">
-      <div class="section-bg" aria-hidden="true"><img src="assets/bg/home-projects.jpg" alt="" loading="lazy"></div>
-<section class="section projects" id="projects" aria-labelledby="projects-heading">
-      <div class="container">
-        <div class="section__header">
-          <p class="section-label">003 FEATURED PROJECTS</p>
-          <h2 class="section-title" id="projects-heading"><span class="reveal-text">Things I've Built</span></h2>
-        </div>
-        <div class="projects__teaser flex flex-col gap-8 border-t-2 border-ink pt-8">
-        <p class="font-body text-[0.9375rem] text-muted max-w-[52ch] leading-[1.7]">Five builds, from this site to a competitive-programming pipeline. The full breakdown - problem, approach, stack - lives on the projects page.</p>
-        <a href="projects.html" class="btn btn--outline">SEE ALL FIVE PROJECTS &#8594;</a>
-      </div>
-        <div class="projects__all-link">
-          <a href="projects.html" class="btn btn--primary">ALL PROJECTS →</a>
+          <article class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
+            <img src="assets/bg/projects-portfolio.jpg" alt="Screenshot of my portfolio website" class="h-44 w-full object-cover">
+            <div class="p-6">
+              <h3 class="mb-2 text-lg font-semibold text-slate-900">Personal Portfolio</h3>
+              <p class="mb-4 text-sm text-slate-600">The site you are looking at - and its cinematic JavaScript sibling, designed and built by me from scratch.</p>
+              <div class="mb-5 flex flex-wrap gap-2">
+                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-700">HTML</span>
+                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-700">CSS</span>
+                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-700">Tailwind</span>
+              </div>
+              <div class="flex gap-3">
+                <a href="https://adityakulkarni-eta.vercel.app" target="_blank" rel="noopener" class="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-700">Live Demo</a>
+                <a href="https://github.com/Aditya2375/portfolio" target="_blank" rel="noopener" class="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-indigo-600 hover:text-indigo-600">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
+            <img src="assets/bg/projects-silly-point.jpg" alt="Screenshot of Silly Point cricket scorer" class="h-44 w-full object-cover">
+            <div class="p-6">
+              <h3 class="mb-2 text-lg font-semibold text-slate-900">Silly Point</h3>
+              <p class="mb-4 text-sm text-slate-600">A live cricket scorer for campus matches, born out of a game where we kept score in a chat app.</p>
+              <div class="mb-5 flex flex-wrap gap-2">
+                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-700">HTML</span>
+                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-700">CSS</span>
+                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-700">JavaScript</span>
+              </div>
+              <div class="flex gap-3">
+                <a href="https://aditya2375.github.io/silly-point/" target="_blank" rel="noopener" class="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-700">Live Demo</a>
+                <a href="https://github.com/Aditya2375/silly-point" target="_blank" rel="noopener" class="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-indigo-600 hover:text-indigo-600">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
+            <img src="assets/bg/projects-campus-atlas.jpg" alt="Screenshot of Campus Atlas" class="h-44 w-full object-cover">
+            <div class="p-6">
+              <h3 class="mb-2 text-lg font-semibold text-slate-900">Campus Atlas</h3>
+              <p class="mb-4 text-sm text-slate-600">Maps of SST's old and new campuses and Uniworld 1 and 2, so first-years stop getting lost.</p>
+              <div class="mb-5 flex flex-wrap gap-2">
+                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-700">HTML</span>
+                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-700">CSS</span>
+                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-700">JavaScript</span>
+              </div>
+              <div class="flex gap-3">
+                <a href="https://aditya2375.github.io/campus-atlas/" target="_blank" rel="noopener" class="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-700">Live Demo</a>
+                <a href="https://github.com/Aditya2375/campus-atlas" target="_blank" rel="noopener" class="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-indigo-600 hover:text-indigo-600">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
+            <img src="assets/bg/projects-relay-runner.jpg" alt="Screenshot of Relay Runner" class="h-44 w-full object-cover">
+            <div class="p-6">
+              <h3 class="mb-2 text-lg font-semibold text-slate-900">Relay Runner</h3>
+              <p class="mb-4 text-sm text-slate-600">A local runner that lets any chat AI ask for small, signed, allowlisted jobs on your machine - nothing runs without your approval.</p>
+              <div class="mb-5 flex flex-wrap gap-2">
+                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-700">Node.js</span>
+                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-700">HTML</span>
+                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-700">CSS</span>
+              </div>
+              <div class="flex gap-3">
+                <a href="https://aditya2375.github.io/relay-runner/" target="_blank" rel="noopener" class="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-700">Live Demo</a>
+                <a href="https://github.com/Aditya2375/relay-runner" target="_blank" rel="noopener" class="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-indigo-600 hover:text-indigo-600">GitHub</a>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
 
-    <!-- ── EXPLORE ────────────────────────────────────── -->
-    <section class="section explore" id="explore" aria-labelledby="explore-heading">
-      <div class="container">
-        <div class="section__header">
-          <p class="section-label">004 EXPLORE</p>
-          <h2 class="section-title" id="explore-heading"><span class="reveal-text">Explore</span></h2>
-        </div>
-        <div class="explore__grid">
-          <article class="explore-card chamfer">
-            <p class="explore-card__index section-label">02</p>
-            <h3 class="explore-card__title">ACADEMICS</h3>
-            <p class="explore-card__desc">Entrance exams, school history, olympiads, and what I'm learning now.</p>
-            <a href="academics.html" class="explore-card__link btn btn--outline btn--sm">View Page →</a>
-          </article>
-          <article class="explore-card chamfer">
-            <p class="explore-card__index section-label">03</p>
-            <h3 class="explore-card__title">PROJECTS</h3>
-            <p class="explore-card__desc">Five projects built: AI tooling, LLM routing, automation, a community platform, and CP.</p>
-            <a href="projects.html" class="explore-card__link btn btn--outline btn--sm">View Page →</a>
-          </article>
-          <article class="explore-card chamfer">
-            <p class="explore-card__index section-label">04</p>
-            <h3 class="explore-card__title">BEYOND THE TERMINAL</h3>
-            <p class="explore-card__desc">Seven years of trekking, daily running, sport, and music.</p>
-            <a href="beyond.html" class="explore-card__link btn btn--outline btn--sm">View Page →</a>
-          </article>
-          <article class="explore-card chamfer">
-            <p class="explore-card__index section-label">05</p>
-            <h3 class="explore-card__title">COMMUNITY</h3>
-            <p class="explore-card__desc">Leadership, clubs, events, volunteering, and how to reach me.</p>
-            <a href="community.html" class="explore-card__link btn btn--outline btn--sm">View Page →</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── CONTACT ────────────────────────────────────── -->
-    </div>
-
-    <section class="section contact section--photo" id="contact" aria-labelledby="contact-heading">
-      <div class="section-bg" aria-hidden="true"><img src="assets/bg/home-contact.jpg" alt="" loading="lazy"></div>
-      <div class="container">
-        <div class="section__header">
-          <p class="section-label">005 CONTACT</p>
-          <h2 class="section-title" id="contact-heading"><span class="reveal-text">Get In Touch.</span></h2>
-        </div>
-        <div class="contact__body flex flex-col gap-8">
-          <div class="contact__primary flex flex-col gap-5">
-            <a href="mailto:adityakulkarni2708@gmail.com" class="contact__email font-mono text-[clamp(1rem,3vw,1.75rem)] font-medium tracking-[-0.01em] text-ink underline decoration-hairline underline-offset-4 transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] w-fit hover:decoration-ink">adityakulkarni2708@gmail.com</a>
-            <a href="tel:+918010187326" class="contact__link font-mono text-[clamp(0.875rem,2vw,1.25rem)] font-medium tracking-[-0.01em] text-muted underline decoration-hairline underline-offset-4 transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] w-fit hover:text-ink hover:decoration-ink">+91 80101 87326</a>
+    <!-- Education Section -->
+    <section id="education" class="scroll-mt-20 border-t border-slate-200">
+      <div class="mx-auto max-w-5xl px-6 py-16 md:py-24">
+        <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-indigo-600">Education</p>
+        <h2 class="mb-10 text-3xl font-bold tracking-tight text-slate-900">Where I study</h2>
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
+            <h3 class="mb-1 text-lg font-semibold text-slate-900">Scaler School of Technology, Bengaluru</h3>
+            <p class="mb-2 text-sm font-medium text-indigo-600">2026 - Present</p>
+            <p class="text-sm text-slate-600">First year, Computer Science and Artificial Intelligence - a build-from-day-one undergraduate program.</p>
           </div>
-          <div class="contact__links-grid flex flex-col gap-5">
-            <a href="https://www.linkedin.com/in/adityaaakulkarni" class="contact__link font-mono text-[clamp(0.875rem,2vw,1.25rem)] font-medium tracking-[-0.01em] text-muted underline decoration-hairline underline-offset-4 transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] w-fit hover:text-ink hover:decoration-ink" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="https://github.com/Aditya2375" class="contact__link font-mono text-[clamp(0.875rem,2vw,1.25rem)] font-medium tracking-[-0.01em] text-muted underline decoration-hairline underline-offset-4 transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] w-fit hover:text-ink hover:decoration-ink" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://www.instagram.com/adityaa_kulkarni_" class="contact__link font-mono text-[clamp(0.875rem,2vw,1.25rem)] font-medium tracking-[-0.01em] text-muted underline decoration-hairline underline-offset-4 transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] w-fit hover:text-ink hover:decoration-ink" target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a href="https://www.threads.com/@adityaa_kulkarni_" class="contact__link font-mono text-[clamp(0.875rem,2vw,1.25rem)] font-medium tracking-[-0.01em] text-muted underline decoration-hairline underline-offset-4 transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] w-fit hover:text-ink hover:decoration-ink" target="_blank" rel="noopener noreferrer">Threads</a>
-            <a href="https://x.com/Adityaa_Kulkarn" class="contact__link font-mono text-[clamp(0.875rem,2vw,1.25rem)] font-medium tracking-[-0.01em] text-muted underline decoration-hairline underline-offset-4 transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] w-fit hover:text-ink hover:decoration-ink" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+          <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
+            <h3 class="mb-1 text-lg font-semibold text-slate-900">BITS Pilani</h3>
+            <p class="mb-2 text-sm font-medium text-indigo-600">2026 - Present</p>
+            <p class="text-sm text-slate-600">Undergraduation in Computer Science, pursued in parallel online.</p>
           </div>
         </div>
       </div>
     </section>
-    
-    <section class="next-page" aria-label="Next page">
-      <div class="container">
-        <p class="section-label">NEXT</p>
-        <a href="academics.html" class="next-page__link">
-          <span class="next-page__name">Academics</span>
-          <span class="next-page__arrow" aria-hidden="true">→</span>
-        </a>
+
+    <!-- Contact Section -->
+    <section id="contact" class="scroll-mt-20 border-t border-slate-200 bg-white">
+      <div class="mx-auto max-w-5xl px-6 py-16 md:py-24">
+        <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-indigo-600">Contact</p>
+        <h2 class="mb-4 text-3xl font-bold tracking-tight text-slate-900">Let's build something together</h2>
+        <p class="mb-10 max-w-2xl text-slate-600">The fastest way to reach me is email. The form below opens your mail app with the message filled in - no backend needed.</p>
+        <div class="grid grid-cols-1 gap-10 md:grid-cols-2">
+          <div class="space-y-3">
+            <a href="mailto:adityakulkarni2708@gmail.com" class="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
+              <span class="font-semibold text-slate-900">Email</span>
+              <span class="text-sm text-slate-600">adityakulkarni2708@gmail.com</span>
+            </a>
+            <a href="https://github.com/Aditya2375" target="_blank" rel="noopener" class="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
+              <span class="font-semibold text-slate-900">GitHub</span>
+              <span class="text-sm text-slate-600">github.com/Aditya2375</span>
+            </a>
+            <a href="https://www.linkedin.com/in/adityaaakulkarni" target="_blank" rel="noopener" class="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
+              <span class="font-semibold text-slate-900">LinkedIn</span>
+              <span class="text-sm text-slate-600">linkedin.com/in/adityaaakulkarni</span>
+            </a>
+          </div>
+          <form action="mailto:adityakulkarni2708@gmail.com" method="get" class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <label for="name" class="mb-1 block text-sm font-medium text-slate-700">Name</label>
+            <input id="name" name="name" type="text" required class="mb-4 w-full rounded-lg border border-slate-300 px-3 py-2 transition-colors focus:border-indigo-600 focus:outline-none">
+            <label for="email" class="mb-1 block text-sm font-medium text-slate-700">Email</label>
+            <input id="email" name="email" type="email" required class="mb-4 w-full rounded-lg border border-slate-300 px-3 py-2 transition-colors focus:border-indigo-600 focus:outline-none">
+            <label for="message" class="mb-1 block text-sm font-medium text-slate-700">Message</label>
+            <textarea id="message" name="body" rows="4" required class="mb-4 w-full rounded-lg border border-slate-300 px-3 py-2 transition-colors focus:border-indigo-600 focus:outline-none"></textarea>
+            <button type="submit" class="rounded-lg bg-indigo-600 px-5 py-2.5 font-medium text-white transition-colors hover:bg-indigo-700">Send Message</button>
+          </form>
+        </div>
       </div>
     </section>
+
   </main>
 
-  <!-- SHARED: keep identical on all 5 pages -->
-  <footer class="footer bg-footerblack text-white pt-16">
-    <div class="footer__wordmark font-display text-[clamp(3rem,15vw,10rem)] font-black uppercase tracking-[-0.04em] leading-[0.9] text-white px-[clamp(1rem,5vw,5rem)] pb-8 border-b border-[rgba(255,255,255,0.12)]" aria-hidden="true">ADITYA</div>
-    <div class="container footer__bottom pt-8 pb-16 flex flex-col gap-8">
-      <ul class="footer__acrostic" aria-label="Aditya, in six words">
-        <li><span class="footer__acrostic-letter" aria-hidden="true">A</span><span class="footer__acrostic-word">Ambitious</span></li>
-        <li><span class="footer__acrostic-letter" aria-hidden="true">D</span><span class="footer__acrostic-word">Determined</span></li>
-        <li><span class="footer__acrostic-letter" aria-hidden="true">I</span><span class="footer__acrostic-word">Inventive</span></li>
-        <li><span class="footer__acrostic-letter" aria-hidden="true">T</span><span class="footer__acrostic-word">Tireless</span></li>
-        <li><span class="footer__acrostic-letter" aria-hidden="true">Y</span><span class="footer__acrostic-word">Youthful</span></li>
-        <li><span class="footer__acrostic-letter" aria-hidden="true">A</span><span class="footer__acrostic-word">Adventurous</span></li>
-      </ul>
-      <div class="footer__cols flex flex-wrap gap-16">
-        <nav class="footer__col flex flex-col gap-4 min-w-[130px]" aria-label="Footer site navigation">
-          <p class="footer__col-label section-label">Navigation</p>
-          <ul role="list" class="flex flex-col gap-3">
-            <li><a href="index.html" class="footer__link font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white">Home</a></li>
-            <li><a href="academics.html" class="footer__link font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white">Academics</a></li>
-            <li><a href="projects.html" class="footer__link font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white">Projects</a></li>
-            <li><a href="beyond.html" class="footer__link font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white">Beyond</a></li>
-            <li><a href="community.html" class="footer__link font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white">Community</a></li>
-          </ul>
-        </nav>
-        <nav class="footer__col flex flex-col gap-4 min-w-[130px]" aria-label="Social links">
-          <p class="footer__col-label section-label">Connect</p>
-          <ul role="list" class="flex flex-col gap-3">
-            <li><a href="mailto:adityakulkarni2708@gmail.com" class="footer__link font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white">Email</a></li>
-            <li><a href="https://www.linkedin.com/in/adityaaakulkarni" class="footer__link font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-            <li><a href="https://github.com/Aditya2375" class="footer__link font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-            <li><a href="https://www.instagram.com/adityaa_kulkarni_" class="footer__link font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-          </ul>
-        </nav>
-        <nav class="footer__col flex flex-col gap-4 min-w-[130px]" aria-label="Sections on this page">
-          <p class="footer__col-label section-label">On This Page</p>
-          <ul role="list" class="flex flex-col gap-3">
-            <li><a href="#about" class="footer__link font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white">About</a></li>
-            <li><a href="#skills" class="footer__link font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white">Skills</a></li>
-            <li><a href="#projects" class="footer__link font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white">Projects</a></li>
-            <li><a href="#explore" class="footer__link font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white">Explore</a></li>
-            <li><a href="#contact" class="footer__link font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white">Contact</a></li>
-          </ul>
-        </nav>
-        <div class="footer__col flex flex-col gap-4 min-w-[130px]">
-          <p class="footer__col-label section-label">Colophon</p>
-          <ul role="list" class="flex flex-col gap-3">
-            <li class="font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)]">Archivo Black / Inter / Plex Mono</li>
-            <li class="font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)]">Hand-rolled CSS + scroll-driven animations</li>
-            <li class="font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)]">AI portraits + picsum.photos</li>
-          </ul>
-        </div>
-        <div class="footer__col flex flex-col gap-4 min-w-[130px]">
-          <p class="footer__col-label section-label">This Site</p>
-          <ul role="list" class="flex flex-col gap-3">
-            <li class="font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)]">Hand-built HTML / CSS</li>
-            <li class="font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)]">Bengaluru &mdash; <span class="footer-clock">--:--</span> IST</li>
-            <li><a href="#top" class="footer__link font-mono text-[0.75rem] tracking-[0.05em] uppercase text-[rgba(255,255,255,0.7)] transition-colors duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white">Back to top &#8593;</a></li>
-          </ul>
-        </div>
+  <!-- Footer -->
+  <footer class="border-t border-slate-200">
+    <div class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-2 px-6 py-8 text-sm text-slate-600">
+      <p>&copy; 2026 Aditya Kulkarni. Built with HTML &amp; Tailwind CSS.</p>
+      <div class="flex gap-4">
+        <a href="https://github.com/Aditya2375" target="_blank" rel="noopener" class="transition-colors hover:text-indigo-600">GitHub</a>
+        <a href="https://www.linkedin.com/in/adityaaakulkarni" target="_blank" rel="noopener" class="transition-colors hover:text-indigo-600">LinkedIn</a>
+        <a href="mailto:adityakulkarni2708@gmail.com" class="transition-colors hover:text-indigo-600">Email</a>
       </div>
-      <p class="footer__legal section-label text-[#545454] mt-4 border-t border-[rgba(255,255,255,0.08)] pt-4">
-        &copy; <span id="footer-year">2026</span> Aditya Kulkarni
-        &mdash; Hand-built with HTML &amp; CSS
-      </p>
     </div>
   </footer>
 
-  <!-- Page theme music: native audio element, no JavaScript needed - press play once. -->
-  <div class="music-pill">
-    <div class="music-pill__head">
-      <span class="section-label music-pill__label">SOUND_01 &middot; HERO THEME</span>
-      <span class="music-pill__eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
-    </div>
-    <audio controls preload="none" src="assets/music/hero.mp3"></audio>
-  </div>
 </body>
 </html>
