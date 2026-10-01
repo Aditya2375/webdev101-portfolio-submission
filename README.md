@@ -36,5 +36,3 @@ Live: https://aditya2375.github.io/relay-runner/
 ## Author
 
 Aditya Kulkarni
-
-Built with AI assistance (Instinct) for speed; every line reviewed and understood by me.
