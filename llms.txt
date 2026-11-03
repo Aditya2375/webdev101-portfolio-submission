@@ -1,0 +1,2 @@
+# Web Dev 101 portfolio
+Static HTML/CSS project by Aditya Kulkarni. No form delivery service; email drafts open locally. Campus Atlas is a fictional schematic, not a verified campus map.
