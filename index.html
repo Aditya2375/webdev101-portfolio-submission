@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aditya Kulkarni | Portfolio</title>
   <meta name="description" content="Aditya Kulkarni - first-year CS and AI student at Scaler School of Technology, Bengaluru. Projects, skills and contact.">
+  <meta name="theme-color" content="#111827"><meta name="referrer" content="no-referrer"><link rel="canonical" href="https://aditya2375.github.io/webdev101-portfolio-submission/">
+  <meta property="og:title" content="Aditya Kulkarni / Web Dev 101"><meta property="og:description" content="Projects, study and interests. A static HTML and CSS portfolio."><meta property="og:type" content="website"><meta property="og:url" content="https://aditya2375.github.io/webdev101-portfolio-submission/">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self'; img-src 'self'; object-src 'none'; base-uri 'none'; form-action mailto:">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -24,7 +27,8 @@
     </nav>
   </header>
 
-  <main id="top">
+  <a class="skip-link" href="#top">Skip to content</a>
+  <main id="top" tabindex="-1">
 
     <!-- Hero Section -->
     <section class="mx-auto max-w-5xl px-6 py-16 md:py-24">
@@ -33,7 +37,7 @@
           <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-500">Hello, I'm</p>
           <h1 class="mb-4 text-4xl font-extrabold tracking-tight text-white md:text-5xl">Aditya Kulkarni</h1>
           <p class="mb-2 text-lg font-medium text-slate-300">First-year CS &amp; AI student at Scaler School of Technology, Bengaluru.</p>
-          <p class="mb-8 text-slate-400">Parallelly pursuing an undergraduation in Computer Science from BITS Pilani. I build tools, break them, and fix them in public.</p>
+          <p class="mb-8 text-slate-400">Also pursuing an undergraduate degree in Computer Science from BITS Pilani. I build tools, break them, and fix them in public.</p>
           <div class="flex flex-wrap gap-3">
             <a href="#projects" class="rounded-lg bg-blue-600 px-5 py-2.5 font-medium text-white transition-colors hover:bg-blue-700">View My Work</a>
             <a href="#contact" class="rounded-lg border border-gray-600 px-5 py-2.5 font-medium text-slate-200 transition-colors hover:border-blue-500 hover:text-blue-500">Get In Touch</a>
@@ -49,7 +53,7 @@
         <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-500">About</p>
         <h2 class="mb-6 text-3xl font-bold tracking-tight text-white">Who I am</h2>
         <div class="max-w-3xl space-y-4 text-slate-400">
-          <p>I'm Aditya, 18, from Pune, now in Bengaluru studying CS and AI at Scaler School of Technology, and parallelly pursuing an undergraduation in Computer Science from BITS Pilani. I scored a 97.4 percentile in JEE Main, 98.4 in MHT-CET, and AIR 21,300 in JEE Advanced, and I picked SST because it lets me build from day one - right now that means AI tooling, web projects, and competitive programming in C++.</p>
+          <p>I'm Aditya, 18, from Pune, now in Bengaluru studying CS and AI at Scaler School of Technology, and also pursuing an undergraduate degree in Computer Science from BITS Pilani. I scored a 97.4 percentile in JEE Main, 98.4 in MHT-CET, and AIR 21,300 in JEE Advanced, and I picked SST because it lets me build from day one - right now that means AI tooling, web projects, and competitive programming in C++.</p>
           <p>Outside the compiler, I run and cycle, and I have been trekking with GGIM Pune for seven years - monthly Sahyadri climbs and five Himalayan summits. I play guitar and piano, led my school's debate club, and was school captain. I post what I'm learning on LinkedIn as I go.</p>
         </div>
       </div>
@@ -103,7 +107,7 @@
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
 
           <article class="overflow-hidden rounded-xl border border-gray-700 bg-gray-800 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
-            <img src="assets/bg/projects-portfolio.jpg" alt="Screenshot of my portfolio website" class="h-44 w-full object-cover">
+            <img loading="lazy" decoding="async" src="assets/bg/projects-portfolio.jpg" alt="Screenshot of my portfolio website" class="h-44 w-full object-cover">
             <div class="p-6">
               <h3 class="mb-2 text-lg font-semibold text-white">Personal Portfolio</h3>
               <p class="mb-4 text-sm text-slate-400">The site you are looking at - and its cinematic JavaScript sibling, designed and built by me from scratch.</p>
@@ -113,14 +117,14 @@
                 <span class="rounded-full bg-gray-700 px-3 py-1 text-xs text-slate-200">Tailwind</span>
               </div>
               <div class="flex gap-3">
-                <a href="https://adityakulkarni-eta.vercel.app" target="_blank" rel="noopener" class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700">Live Demo</a>
-                <a href="https://github.com/Aditya2375/portfolio" target="_blank" rel="noopener" class="rounded-lg border border-gray-600 px-4 py-2 text-sm font-medium text-slate-200 transition-colors hover:border-blue-500 hover:text-blue-500">GitHub</a>
+                <a href="https://adityakulkarni-eta.vercel.app" target="_blank" rel="noopener noreferrer" class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700">Live Demo</a>
+                <a href="https://github.com/Aditya2375/portfolio" target="_blank" rel="noopener noreferrer" class="rounded-lg border border-gray-600 px-4 py-2 text-sm font-medium text-slate-200 transition-colors hover:border-blue-500 hover:text-blue-500">GitHub</a>
               </div>
             </div>
           </article>
 
           <article class="overflow-hidden rounded-xl border border-gray-700 bg-gray-800 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
-            <img src="assets/bg/projects-silly-point.jpg" alt="Screenshot of Silly Point cricket scorer" class="h-44 w-full object-cover">
+            <img loading="lazy" decoding="async" src="assets/bg/projects-silly-point.jpg" alt="Screenshot of Silly Point cricket scorer" class="h-44 w-full object-cover">
             <div class="p-6">
               <h3 class="mb-2 text-lg font-semibold text-white">Silly Point</h3>
               <p class="mb-4 text-sm text-slate-400">A live cricket scorer for campus matches, born out of a game where we kept score in a chat app.</p>
@@ -130,42 +134,42 @@
                 <span class="rounded-full bg-gray-700 px-3 py-1 text-xs text-slate-200">JavaScript</span>
               </div>
               <div class="flex gap-3">
-                <a href="https://aditya2375.github.io/silly-point/" target="_blank" rel="noopener" class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700">Live Demo</a>
-                <a href="https://github.com/Aditya2375/silly-point" target="_blank" rel="noopener" class="rounded-lg border border-gray-600 px-4 py-2 text-sm font-medium text-slate-200 transition-colors hover:border-blue-500 hover:text-blue-500">GitHub</a>
+                <a href="https://aditya2375.github.io/silly-point/" target="_blank" rel="noopener noreferrer" class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700">Live Demo</a>
+                <a href="https://github.com/Aditya2375/silly-point" target="_blank" rel="noopener noreferrer" class="rounded-lg border border-gray-600 px-4 py-2 text-sm font-medium text-slate-200 transition-colors hover:border-blue-500 hover:text-blue-500">GitHub</a>
               </div>
             </div>
           </article>
 
           <article class="overflow-hidden rounded-xl border border-gray-700 bg-gray-800 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
-            <img src="assets/bg/projects-campus-atlas.jpg" alt="Screenshot of Campus Atlas" class="h-44 w-full object-cover">
+            <img loading="lazy" decoding="async" src="assets/bg/projects-campus-atlas.jpg" alt="Screenshot of Campus Atlas" class="h-44 w-full object-cover">
             <div class="p-6">
               <h3 class="mb-2 text-lg font-semibold text-white">Campus Atlas</h3>
-              <p class="mb-4 text-sm text-slate-400">Maps of SST's old and new campuses and Uniworld 1 and 2, so first-years stop getting lost.</p>
+              <p class="mb-4 text-sm text-slate-400">A fictional campus schematic for exploring places and keeping browser-local notes. Not a verified SST map or navigation tool.</p>
               <div class="mb-5 flex flex-wrap gap-2">
                 <span class="rounded-full bg-gray-700 px-3 py-1 text-xs text-slate-200">HTML</span>
                 <span class="rounded-full bg-gray-700 px-3 py-1 text-xs text-slate-200">CSS</span>
                 <span class="rounded-full bg-gray-700 px-3 py-1 text-xs text-slate-200">JavaScript</span>
               </div>
               <div class="flex gap-3">
-                <a href="https://aditya2375.github.io/campus-atlas/" target="_blank" rel="noopener" class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700">Live Demo</a>
-                <a href="https://github.com/Aditya2375/campus-atlas" target="_blank" rel="noopener" class="rounded-lg border border-gray-600 px-4 py-2 text-sm font-medium text-slate-200 transition-colors hover:border-blue-500 hover:text-blue-500">GitHub</a>
+                <a href="https://aditya2375.github.io/campus-atlas/" target="_blank" rel="noopener noreferrer" class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700">Live Demo</a>
+                <a href="https://github.com/Aditya2375/campus-atlas" target="_blank" rel="noopener noreferrer" class="rounded-lg border border-gray-600 px-4 py-2 text-sm font-medium text-slate-200 transition-colors hover:border-blue-500 hover:text-blue-500">GitHub</a>
               </div>
             </div>
           </article>
 
           <article class="overflow-hidden rounded-xl border border-gray-700 bg-gray-800 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
-            <img src="assets/bg/projects-relay-runner.jpg" alt="Screenshot of Relay Runner" class="h-44 w-full object-cover">
+            <img loading="lazy" decoding="async" src="assets/bg/projects-relay-runner.jpg" alt="Screenshot of Relay Runner" class="h-44 w-full object-cover">
             <div class="p-6">
               <h3 class="mb-2 text-lg font-semibold text-white">Relay Runner</h3>
-              <p class="mb-4 text-sm text-slate-400">A local runner that lets any chat AI ask for small, signed, allowlisted jobs on your machine - nothing runs without your approval.</p>
+              <p class="mb-4 text-sm text-slate-400">A local runner that lets any chat AI ask for small, signed, allowlisted jobs on your machine - signed allowlisted requests, with explicit local execution controls.</p>
               <div class="mb-5 flex flex-wrap gap-2">
                 <span class="rounded-full bg-gray-700 px-3 py-1 text-xs text-slate-200">Node.js</span>
                 <span class="rounded-full bg-gray-700 px-3 py-1 text-xs text-slate-200">HTML</span>
                 <span class="rounded-full bg-gray-700 px-3 py-1 text-xs text-slate-200">CSS</span>
               </div>
               <div class="flex gap-3">
-                <a href="https://aditya2375.github.io/relay-runner/" target="_blank" rel="noopener" class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700">Live Demo</a>
-                <a href="https://github.com/Aditya2375/relay-runner" target="_blank" rel="noopener" class="rounded-lg border border-gray-600 px-4 py-2 text-sm font-medium text-slate-200 transition-colors hover:border-blue-500 hover:text-blue-500">GitHub</a>
+                <a href="https://aditya2375.github.io/relay-runner/" target="_blank" rel="noopener noreferrer" class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700">Live Demo</a>
+                <a href="https://github.com/Aditya2375/relay-runner" target="_blank" rel="noopener noreferrer" class="rounded-lg border border-gray-600 px-4 py-2 text-sm font-medium text-slate-200 transition-colors hover:border-blue-500 hover:text-blue-500">GitHub</a>
               </div>
             </div>
           </article>
@@ -188,7 +192,7 @@
           <div class="rounded-xl border border-gray-700 bg-gray-800 p-6 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
             <h3 class="mb-1 text-lg font-semibold text-white">BITS Pilani</h3>
             <p class="mb-2 text-sm font-medium text-blue-500">2026 - Present</p>
-            <p class="text-sm text-slate-400">Undergraduation in Computer Science, pursued in parallel online.</p>
+            <p class="text-sm text-slate-400">Undergraduate degree in Computer Science, pursued in parallel online.</p>
           </div>
         </div>
       </div>
@@ -199,30 +203,28 @@
       <div class="mx-auto max-w-5xl px-6 py-16 md:py-24">
         <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-500">Contact</p>
         <h2 class="mb-4 text-3xl font-bold tracking-tight text-white">Let's build something together</h2>
-        <p class="mb-10 max-w-2xl text-slate-400">The fastest way to reach me is email. The form below opens your mail app with the message filled in - no backend needed.</p>
+        <p class="mb-10 max-w-2xl text-slate-400">Use the email link or prepare a draft below. This opens a configured mail app; nothing is sent or stored by this website. Review and send in your mail app.</p>
         <div class="grid grid-cols-1 gap-10 md:grid-cols-2">
           <div class="space-y-3">
             <a href="mailto:adityakulkarni2708@gmail.com" class="flex items-center gap-3 rounded-xl border border-gray-700 bg-gray-800 p-4 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
               <span class="font-semibold text-white">Email</span>
               <span class="text-sm text-slate-400">adityakulkarni2708@gmail.com</span>
             </a>
-            <a href="https://github.com/Aditya2375" target="_blank" rel="noopener" class="flex items-center gap-3 rounded-xl border border-gray-700 bg-gray-800 p-4 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
+            <a href="https://github.com/Aditya2375" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 rounded-xl border border-gray-700 bg-gray-800 p-4 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
               <span class="font-semibold text-white">GitHub</span>
               <span class="text-sm text-slate-400">github.com/Aditya2375</span>
             </a>
-            <a href="https://www.linkedin.com/in/adityaaakulkarni" target="_blank" rel="noopener" class="flex items-center gap-3 rounded-xl border border-gray-700 bg-gray-800 p-4 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
+            <a href="https://www.linkedin.com/in/adityaaakulkarni" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 rounded-xl border border-gray-700 bg-gray-800 p-4 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
               <span class="font-semibold text-white">LinkedIn</span>
               <span class="text-sm text-slate-400">linkedin.com/in/adityaaakulkarni</span>
             </a>
           </div>
           <form action="mailto:adityakulkarni2708@gmail.com" method="get" class="rounded-xl border border-gray-700 bg-gray-800 p-6 shadow-sm">
-            <label for="name" class="mb-1 block text-sm font-medium text-slate-300">Name</label>
-            <input id="name" name="name" type="text" required class="mb-4 w-full rounded-lg border border-gray-600 bg-gray-700 px-3 py-2 text-white transition-colors focus:border-blue-500 focus:outline-none">
-            <label for="email" class="mb-1 block text-sm font-medium text-slate-300">Email</label>
-            <input id="email" name="email" type="email" required class="mb-4 w-full rounded-lg border border-gray-600 bg-gray-700 px-3 py-2 text-white transition-colors focus:border-blue-500 focus:outline-none">
+            <label for="name" class="mb-1 block text-sm font-medium text-slate-300">Subject</label>
+            <input id="name" name="subject" type="text" maxlength="160" required class="mb-4 w-full rounded-lg border border-gray-600 bg-gray-700 px-3 py-2 text-white transition-colors focus:border-blue-500 focus:outline-none">
             <label for="message" class="mb-1 block text-sm font-medium text-slate-300">Message</label>
-            <textarea id="message" name="body" rows="4" required class="mb-4 w-full rounded-lg border border-gray-600 bg-gray-700 px-3 py-2 text-white transition-colors focus:border-blue-500 focus:outline-none"></textarea>
-            <button type="submit" class="rounded-lg bg-blue-600 px-5 py-2.5 font-medium text-white transition-colors hover:bg-blue-700">Send Message</button>
+            <textarea id="message" name="body" rows="4" maxlength="2000" required class="mb-4 w-full rounded-lg border border-gray-600 bg-gray-700 px-3 py-2 text-white transition-colors focus:border-blue-500 focus:outline-none"></textarea>
+            <button type="submit" class="rounded-lg bg-blue-600 px-5 py-2.5 font-medium text-white transition-colors hover:bg-blue-700">Open email draft</button>
           </form>
         </div>
       </div>
@@ -235,8 +237,8 @@
     <div class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-2 px-6 py-8 text-sm text-slate-400">
       <p>&copy; 2026 Aditya Kulkarni. Built with HTML &amp; Tailwind CSS.</p>
       <div class="flex gap-4">
-        <a href="https://github.com/Aditya2375" target="_blank" rel="noopener" class="transition-colors hover:text-blue-500">GitHub</a>
-        <a href="https://www.linkedin.com/in/adityaaakulkarni" target="_blank" rel="noopener" class="transition-colors hover:text-blue-500">LinkedIn</a>
+        <a href="https://github.com/Aditya2375" target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-blue-500">GitHub</a>
+        <a href="https://www.linkedin.com/in/adityaaakulkarni" target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-blue-500">LinkedIn</a>
         <a href="mailto:adityakulkarni2708@gmail.com" class="transition-colors hover:text-blue-500">Email</a>
       </div>
     </div>
