@@ -4,3 +4,6 @@
 .skip-link{position:fixed;left:1rem;top:-5rem;z-index:100;padding:.75rem;background:#fff;color:#111827}.skip-link:focus{top:1rem}
 :focus-visible{outline:3px solid #93c5fd!important;outline-offset:4px}a,button{touch-action:manipulation}#contact a{min-width:0;flex-wrap:wrap;overflow-wrap:anywhere}.scroll-mt-20{scroll-margin-top:8rem}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Keep hero content readable from the first frame. */
+.animate-fade-in-up{animation:none;opacity:1;transform:none}
