@@ -25,7 +25,7 @@ Live: https://aditya2375.github.io/silly-point/
 
 ### Campus Atlas
 
-Maps of SST's old and new campuses and Uniworld 1 and 2.
+Fictional campus schematic with browser-local notes, not a verified SST map.
 Live: https://aditya2375.github.io/campus-atlas/
 
 ### Relay Runner
@@ -36,3 +36,7 @@ Live: https://aditya2375.github.io/relay-runner/
 ## Author
 
 Aditya Kulkarni
+
+## Privacy and hosting
+
+Static HTML and CSS, with no scripts, analytics, accounts, backend or form delivery service. The contact form only opens a draft in a configured mail application; the visitor reviews and sends it there. CSP/referrer metadata, keyboard focus and reduced-motion styles are included. Personal background is existing portfolio copy, not independently reverified by this technical review.
